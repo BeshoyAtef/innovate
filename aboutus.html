@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+       
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+      
+        <link rel="stylesheet" href="css/aboutus.css" type="text/css" media="screen"/>
+        <style>
+            *{
+                margin:0;
+                padding:0;
+            }
+            body{
+                font-family:Arial;
+                background:rgb(68,2,2); ;
+            }
+            a{
+                color:#444;
+            }
+            a:hover{
+                color:#999;
+            }
+            .title{
+                width:500px;
+                height:152px;
+                position:absolute;
+                top:0px;
+                left:0px;
+                background:transparent url(title.png) no-repeat top left;
+            }
+            a.back{
+                background:transparent url(back.png) no-repeat top left;
+                position:fixed;
+                width:150px;
+                height:27px;
+                outline:none;
+                bottom:0px;
+                left:0px;
+            }
+            #content{
+                margin:0 auto;
+            }
+            .reference{
+                clear:both;
+                top:300px;
+                left:0px;
+                position:absolute;
+                text-align:right;
+                width:400px;
+                padding:20px;
+                background-color:#fff;
+                -moz-box-shadow:1px 3px 15px #ddd;
+                -webkit-box-shadow:1px 3px 15px #ddd;
+                box-shadow:1px 3px 15px #ddd;
+            }
+            .reference p a{
+                text-transform:uppercase;
+                text-shadow:1px 1px 1px #fff;
+                color:#666;
+                text-decoration:none;
+                font-size:10px;
+            }
+            .reference p a:hover{
+                color:#333;
+            }
+            .logo{
+                margin-top:-15px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div id="content">
+            <div class ="logo" ><li> <a href="#"><img src="images/logo-white.png" alt="" /></a></li></div>
+            </div>
+             
+              <div class = "img">
+            <ul id="carousel" class="elastislide-list">
+                    <span class ="img1" ><li> <a class="zoom1" href="#">About us <img src="images/na.png" alt="" /></a></li></span>
+                    <span class = "img2"><li> <a class="zoom1" href="#" style='font-size:12px;top:50px;left:50px' >Advertisment<img src="images/na.png" alt="" /></a></li></span>
+                    <span class = "img3"><li><a class="zoom1" href="wedding.html" style='font-size:12px;top:50px;left:50px' >photography<img src="images/na.png" alt="" /></a></li><span/>
+                    <span class = "img4"><li> <a class="zoom1" href="shortmovies.html" style='font-size:12px;top:50px;left:50px'>short movies<img src="images/na.png" alt="" /></a></li><span/>
+                    <span class = "img5"><li> <a class="zoom1" href="#" style='font-size:12px;top:50px;left:50px'>contact us<img src="images/na.png" alt="" /></a></li><span/>
+                
+            </div>      
+            </ul>
+
+<!-- <div id="testclick"><h3>Teeeeeeeeeeeeeest</h3></div> -->
+            <ul class="accordion" id="accordion" >
+                <li onClick="showVideo()" class="bg1">
+                    <div  class="heading" id="vid" >Videography</div>
+                    <!-- <div class="bgDescription"></div> -->
+                    
+                        <iframe src="http://www.facebook.com/video/embed?video_id=295364757209116" width="720" height="576" frameborder="0"></iframe>
+                  
+                    <div id="testclick" class="viddescription">
+                        <div id="video-content">
+                        <h2>Videography</h2>
+                        <p>
+                        We Not Only Cover The Event We Film It
+                        Professional crew film the event in a cadrage & cinematic technique With full HD quality & wireless cam.
+                        Edited by final cut. with white leds
+                        No More Videography Headache,Ask Any One who Tried Us Before..
+                        Video Clips & Proposals:
+                        Your clip in HD Quality ,You may broadcast your clip 
+                        Clip or Proposal From Your Spirit You’d not Forget
+                        It Could Be Comedy Tragedy Anything But Not Boring
+                        </p>
+                        <a href="#">more &rarr;</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="bg2">
+                    <div class="heading">Photography:</div>
+                    <div class="bgDescription"></div>
+                    <div class="description">
+                        <h2>Photography:</h2>
+                        <p>Professional crew from: - Photographers,  Videographers,Directors and Editors. 
+                            You Can Feel The Difference HD Quality, Wireless
+                            Sense of Talent.
+
+                            Our Photography Teams main purpose is capturing every single detail and keep the precious shots in their crystal pack you can see your event without missing details with very High Quality.
+
+                            
+                             </p>
+                        <a href="#">more &rarr;</a>
+                    </div>
+
+                </li>
+                <li class="bg3">
+                    <div class="heading">Weddings</div>
+                    <div class="bgDescription"></div>
+                    <div class="description">
+                        <h2>Weddings</h2>
+                        <p>Commercial, Lifestyle videography and photography.Specializing in Weddings, Engagements,Baby Showers,Videoclips and funbooths.</p>
+                        <a href="#">more &rarr;</a>
+                    </div>
+
+                </li>
+                <li class="bg4 bleft">
+                    <div class="heading">About us</div>
+                    <div class="bgDescription"></div>
+                    <div class="description">
+                        <h2>About us </h2>
+                        <p>Innovate Media Production for : Advertising campaigns, featured films, Video Clips and documentry films
+                        </p>
+                        <a href="#">more &rarr;</a>
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <!-- The JavaScript -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $("#testclick").click(function() {
+                $('#video-content').hide();
+            });    
+            $(function() {
+                $('#accordion > li').hover(
+                    function () {
+                        var $this = $(this);
+                        $this.stop().animate({'width':'480px'},500);
+                        $('.heading',$this).stop(true,true).fadeOut();
+                        $('.bgDescription',$this).stop(true,true).slideDown(500);
+                        $('.description',$this).stop(true,true).fadeIn();
+                    },
+                    function () {
+                        var $this = $(this);
+                        $this.stop().animate({'width':'115px'},1000);
+                        $('.heading',$this).stop(true,true).fadeIn();
+                        $('.description',$this).stop(true,true).fadeOut(500);
+                        $('.bgDescription',$this).stop(true,true).slideUp(700);
+                    }
+                );
+            });
+        </script>
+    </body>
+</html>
