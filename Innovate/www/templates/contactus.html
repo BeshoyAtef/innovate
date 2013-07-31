@@ -207,17 +207,17 @@ $("#id_name").blur(
   <aside id="contact-info">
     <dl>
       <dt>Email</dt>
-      <dd><label>info@innovatemedia.com</label></dd>
+      <dd><label>{{contact_obj.email}}</label></dd>
       <dt>Telephone</dt>
-      <dd><label>+20 1111111111</label></dd>
+      <dd><label>{{contact_obj.telephone_number}}</label></dd>
       <dt>Skype</dt>
-      <dd><label>innovate</label></dd>
+      <dd><label>{{contact_obj.skype_name}}</label></dd>
       <dt>Address</dt>
       <dd>
         <address>
-          1 innovate Str.,<br />
-          Cairo,<br />
-          Egypt.
+         {{contact_obj.address_line1}},<br />
+          {{contact_obj.address_line2}},<br />
+          {{contact_obj.address_line3}}.
         </address>
       </dd>
       <dd class="social-links">
