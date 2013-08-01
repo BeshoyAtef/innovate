@@ -1,12 +1,14 @@
-{% load staticfiles %}c
-<html>
-<head>
-	<title></title>
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% block header %}
   <link href="{% static "css/contactus.css" %}" rel="stylesheet" media="screen">
   <link href="{% static "css/nav.css" %}" rel="stylesheet" media="screen">
-  <script type="text/javascript" src="{% static "js/jquery-1.9.1.min.js" %}" ></script>
   <script type="text/javascript" src="{% static "js/jquery.min.js" %}" ></script>
-</head>
+{% endblock %}
+
+{% block content %}
+
 <style type="text/css">
   .loading{
   position:fixed;
@@ -25,53 +27,10 @@
   color: black;
 }
 </style>
-<body id="contact" class="contact">
-  <div id="navigation-bar" class = "nav" style="padding-right:50px;margin-top:0px;">
-      <ul id="carousel" class="elastislide-list">
-          <span class ="img1" >
-            
-            <li> <a class="zoom1" href="aboutus.html"><img src="{% static "img/na.png"%}" alt="" />About us </a></li></span>
-          <span class = "img2">
-          
-            <li> <a class="zoom1" href="advertisealbum.html" style='font-size:12px;top:50px;left:50px' ><img src="{% static "img/na.png"%}" alt="" />Advertisment</a></span>
+<div id="contact" class="contact">
 
-              <ul>
-               <span class = "nest"> <li><a href="#"><img src="{% static "img/na1.png"%}" alt="" />events</a></li></span>
-              
-
-              <span class = "nest2"> <li><a href="#"><img src="{% static "img/na1.png"%}" alt="" />promo</a></li></span>
-              
-                </ul> 
-                          </li>
-                
-          <span class = "img3">
-            <li><a class="img3" href="#" style='font-size:12px;top:50px;left:50px' ><img src="{% static "img/na.png" %}"alt="" /><br>photography</a></span>
-          <span class = "img4">
-
-
-                        <ul>
-               <span class = "nest"> <li><a href="wedding.html"><img src="{% static "img/na1.png"%}" alt="" />weddings</a></li></span>
-               <span class = "next2"> <li><a href="advertisealbum.html"><img src="{% static "img/na1.png"%}" alt="" />advertisement</a></li></span>
-                </ul> 
-                          </li>
-                
-
-            <li> <a class="zoom1" href="shortmovies.html" style='font-size:12px;top:50px;left:50px'><img src="{% static "img/na.png"%}" alt="" />short movies</a><span/>
-
-                           <ul>
-              
-               <span class = "next2"> <li><a href="Promo Videos.html"><img src="{% static "img/na1.png"%}" alt="" />documenteries</a></li></span>
-                </ul> 
-                          </li>
-
-          <span class = "img5">
-            <li> <a class="zoom1" href="contactus.html" style='font-size:12px;top:50px;left:50px'><img src="{%static "img/na.png"%}" alt="" />contact us</a></li><span/>
-        
-      </div>    
-      </ul>
       <!-- src="{% static "my_app/myexample.jpg" %}" -->
       <div id='wait' class="loading"><span><label class='loading_label'>Loading...</label></span></div>
-<img style="padding-left:400px;padding-top:10px;" src="{% static "img/logo-white.png"%}" height="100">
 
 <div id="sitecontent">
 
@@ -101,7 +60,7 @@
 
     </p>
 
-    <p class="row">
+    <p class="row" style="margin-left:-1px" >
       <label id='message' for="id_message">Message: <span class="required">*</span></label>
       <span class="field"><textarea cols="40" rows="10" name="message" id="id_message"></textarea><label id='message_error' style="display:none">Can not be blank</label></span>
     </p>
@@ -232,7 +191,7 @@ $("#id_name").blur(
 
  
 </div></div>
-
+{% endblock %}
 <!-- <div id="main-modal" class="modal" style="display:none">
   <div class="modal-thinker"></div>
   <div class="modal-content-wrapper">
