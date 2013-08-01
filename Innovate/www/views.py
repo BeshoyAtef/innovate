@@ -23,4 +23,8 @@ def view_contact_us(request):
 
 #Beshoy Atef-This Method render the Main Page for checking Perposes 
 def render_base(request):
-	return render_to_response('base.html')
+	return render_to_response('base.html',context_instance=RequestContext(request))
+
+#Beshoy Atef-This Method render the Main Page for checking Perposes 
+def render_radioAds(request):
+	return render_to_response('radio.html',context_instance=RequestContext(request))
