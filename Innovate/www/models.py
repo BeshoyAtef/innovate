@@ -7,3 +7,6 @@ class contact(models.Model):
 	address_line3 = models.CharField(max_length='100')
 	skype_name = models.CharField(max_length='50')
 	telephone_number = models.CharField(max_length='100')
+
+class radio_ad(models.Model):
+	url = models.CharField(max_length='1000')
