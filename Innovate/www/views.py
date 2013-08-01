@@ -20,3 +20,7 @@ def view_contact_us(request):
 	contact_obj = contact.objects.all()
 	contact_obj = contact_obj[0]
 	return render_to_response('contactus.html', {'contact_obj':contact_obj})
+
+#Beshoy Atef-This Method render the Main Page for checking Perposes 
+def render_base(request):
+	return render_to_response('base.html')
