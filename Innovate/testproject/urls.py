@@ -16,5 +16,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^email/', 'www.views.sendemail'),
     url(r'^Contact/', 'www.views.view_contact_us'),
+    url(r'^base/', 'www.views.render_base'),
+
 
 )
