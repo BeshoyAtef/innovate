@@ -9,4 +9,7 @@ class contact(models.Model):
 	telephone_number = models.CharField(max_length='100')
 
 class radio_ad(models.Model):
-	url = models.CharField(max_length='1000')
+	title=models.CharField(max_length='500')
+	url = models.TextField(max_length='1000')
+	def __unicode__(self):
+	    return self.title
