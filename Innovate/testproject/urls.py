@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
 
+
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
@@ -19,7 +20,10 @@ urlpatterns = patterns('',
 
     url(r'^base/', 'www.views.render_base'),
     url(r'^radio/', 'www.views.render_radioAds'),
-
+    url(r'^main/', 'www.views.render_main'),
 
 
 )
+urlpatterns += patterns('django.views.static',
+        (r'media/(?P<path>.*)', 'serve', {'document_root': 'media'}),
+    )
