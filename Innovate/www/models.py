@@ -1,5 +1,19 @@
 from django.db import models
 
+class video(models.Model):
+	youtube_url = models.CharField(max_length='150')
+	title = models.CharField(max_length='150')
+	director = models.CharField(max_length='50')
+	producer = models.CharField(max_length='50')
+	photographer = models.CharField(max_length='50')
+	number_of_views = models.IntegerField(default='0')
+	video_choices = (
+		('W', 'Wedding'),
+		('P', 'Promo'),
+		('W', 'Wedding'),
+	)
+	video_genre = models.CharField(max_length=1, choices=video_choices)
+
 class contact(models.Model):
 	email = models.CharField(max_length='100')
 	address_line1 = models.CharField(max_length='100')

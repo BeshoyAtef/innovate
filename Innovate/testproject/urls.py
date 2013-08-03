@@ -16,9 +16,12 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^email/', 'www.views.sendemail'),
     url(r'^Contact/', 'www.views.view_contact_us'),
-
+    # url(r'^test/', 'www.views.add_video'),
     url(r'^base/', 'www.views.render_base'),
     url(r'^radio/', 'www.views.render_radioAds'),
+    # url(r'^add/', 'www.views.render_radioAds'),
+    url(r'^add/video/', 'www.views.add_video'),
+    url(r'^add/contact/', 'www.views.add_contact'),
 
 
 
