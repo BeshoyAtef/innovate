@@ -6,6 +6,7 @@ class VideoForm(forms.Form):
 	director = forms.CharField(max_length='50',required=True)
 	producer = forms.CharField(max_length='50',required=True)
 	photographer = forms.CharField(max_length='50',required=True)
+	video_cover = forms.ImageField(required=True)
 	video_genre = forms.ChoiceField(widget = forms.Select(), 
 					 choices = ([('w','wedding'), ('d','documentary'),('p','promos'), ]),required = True,)
 

@@ -16,9 +16,9 @@
 	{% endif %}
 	<h2 >Please enter the video details that you want to add.</h2>
 
-	<form class="form-horizontal" method="post" action="/add/video/">
+	<form class="form-horizontal" enctype="multipart/form-data" method="post" action="/add/video/">
 	{% csrf_token %}
- 		<div class="form-group" >
+ 	 	<div class="form-group" >
 			<label class="col-lg-2 control-label" for="id_youtube_url">Youtube url:</label> 
 			<div class="col-lg-10">
 				<input placeholder="required" class="form-control" id="id_youtube_url" maxlength="150" name="youtube_url" type="text" />
@@ -56,6 +56,13 @@
 				<input  placeholder="required" class="form-control" id="id_photographer" maxlength="50" name="photographer" type="text" /><label id="photographer_error" style="display:none">Invalid</label>
 			</div>
 		</div>
+
+		<div class="form-group">
+			<label class="col-lg-2 control-label" for="id_video_cover">Video Image:</label>
+			<div class="col-lg-10">
+				<input id="id_video_cover" maxlength="50" name="video_cover" type="file" />
+			</div>
+		</div>
 		
 		
 		<div class="form-group">
@@ -65,7 +72,8 @@
 				<option value='p'>Promos</option>
 				<option value='d'>Documentaries</option>
 			</select>	
-		</div>
+		</div> 
+		
 
 		<input style="margin-left:597px;" class="btn btn-default" type="submit" value="Submit" />
 	</form>

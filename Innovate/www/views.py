@@ -7,9 +7,37 @@ from www.models import *
 from www.forms import *
 import soundcloud
 
-def show_videos(request):
-	list_of_videos = video.objects.all()
-	return render_to_response('shortmovies.html',{'list_of_videos':list_of_videos})
+
+
+def delete_post(request):
+	albumid = request.POST['albumid']
+	print albumid
+	video.objects.get(pk=albumid).delete()
+	return HttpResponse('')
+
+#Abdelrahman Maged- This method gets the video-id from the post request. then it retrieves
+#the video object with the entered id and increment the number of views of it by one.
+#it returns an empty httpresponse.
+def increment_number_of_views(request):
+	video_id = request.POST['video']
+	video_obj = video.objects.get(pk=video_id)
+	old_number_of_views = video_obj.number_of_views
+	video_obj.number_of_views = old_number_of_views + 1
+	video_obj.save()
+	return HttpResponse('')
+
+def show_wedding_videos(request):
+	list_of_videos = video.objects.filter(video_genre='w')
+	return render_to_response('shortmovies.html',{'list_of_videos':list_of_videos, 'wedding':'wedding'})
+
+def show_documentaries_videos(request):
+	list_of_videos = video.objects.filter(video_genre='d')
+	return render_to_response('shortmovies.html',{'list_of_videos':list_of_videos,'doc':'doc'})
+
+def show_promo_videos(request):
+	list_of_videos = video.objects.filter(video_genre='p')
+	return render_to_response('shortmovies.html',{'list_of_videos':list_of_videos,'promo':'promo'})
+
 
 #Abdelrahman Maged-This method get the form from the html. but first it checks whether 
 #the request is post or not. if it is it checks whether the form is valid or not. if the
@@ -19,13 +47,6 @@ def add_contact(request):
 	if request.method == 'POST':
 		form = ContactForm(request.POST)
 		if form.is_valid():
-			print form.cleaned_data['telephonenumber']
-			print form.cleaned_data['email']
-			print form.cleaned_data['skypename']
-			print form.cleaned_data['addressline1']
-			print form.cleaned_data['addressline2']
-			print form.cleaned_data['addressline3']
-
 			contact.objects.create(
 				telephone_number = form.cleaned_data['telephonenumber'],
 				email = form.cleaned_data['email'],
@@ -48,15 +69,16 @@ def add_contact(request):
 #if the form is not valid it just refreshes the feed and shows the form blank again.
 def add_video(request):
 	if request.method == 'POST':
-		form = VideoForm(request.POST)
+		form = VideoForm(request.POST, request.FILES)
 		if form.is_valid():
-			print form.cleaned_data['video_genre']
+			print form.cleaned_data['video_cover']
 			video.objects.create(youtube_url = form.cleaned_data['youtube_url'],
 				title = form.cleaned_data['title'],
 				director = form.cleaned_data['director'],
 				producer = form.cleaned_data['producer'],
 				photographer = form.cleaned_data['photographer'],
-				video_genre = form.cleaned_data['video_genre']
+				video_genre = form.cleaned_data['video_genre'],
+				video_cover = form.cleaned_data['video_cover']
 				)
 			return render_to_response('add_video.html',{'success':'true'})          
 		else:

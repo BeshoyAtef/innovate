@@ -2,6 +2,7 @@ from django.db import models
 
 class video(models.Model):
 	youtube_url = models.CharField(max_length='150')
+	video_cover = models.ImageField(upload_to='media')
 	title = models.CharField(max_length='150')
 	director = models.CharField(max_length='50')
 	producer = models.CharField(max_length='50')
