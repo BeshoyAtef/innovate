@@ -1,8 +1,29 @@
-<html>
-<head>
-	<title>tyu</title>
-</head>
-<body>
-<h2>hello</h2>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load thumbnail %}
+
+{% block content %}
+
+	<h1> sorl-app Test Page</h1>
+	<h3>Full pic</h3>
+	<img src="{{ thumb.image.url }}" alt="{{ thumb.image.url }}">
+	<h3>500x400 pic</h3>
+	    {% thumbnail thumb.image "500x400" as im %}
+		    <img src="{{ im.url }}" alt="{{ thumb.image.url }}">
+		{% endthumbnail %}
+	<h3>300x200 pic</h3>
+    {% thumbnail thumb.image "300x200" as im %}
+	    <img src="{{ im.url }}" alt="{{ thumb.image.url }}">
+	{% endthumbnail %}
+
+	<h3>x100 pic</h3>
+    {% thumbnail thumb.image "x100" as im %}
+	    <img src="{{ im.url }}" alt="{{ thumb.image.url }}">
+	{% endthumbnail %}
+
+	<h3>500 pic</h3>
+    {% thumbnail thumb.image "500" as im %}
+	    <img src="{{ im.url }}" alt="{{ thumb.image.url }}">
+	{% endthumbnail %}
+
+
+{% endblock %}

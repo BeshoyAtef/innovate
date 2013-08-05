@@ -38,7 +38,7 @@ class Engine(EngineBase):
         args = map(smart_str, args)
         p = Popen(args)
         p.wait()
-        with open(out, 'rb') as fp:
+        with open(out, 'r') as fp:
             thumbnail.write(fp.read())
         os.close(handle)
         os.remove(out)
@@ -49,7 +49,7 @@ class Engine(EngineBase):
         Returns the backend image objects from a ImageFile instance
         """
         handle, tmp = mkstemp()
-        with open(tmp, 'wb') as fp:
+        with open(tmp, 'w') as fp:
             fp.write(source.read())
         os.close(handle)
         return {'source': tmp, 'options': SortedDict(), 'size': None}
@@ -73,7 +73,7 @@ class Engine(EngineBase):
         valid that it can use as input.
         """
         handle, tmp = mkstemp()
-        with open(tmp, 'wb') as fp:
+        with open(tmp, 'w') as fp:
             fp.write(raw_data)
             fp.flush()
             args = settings.THUMBNAIL_IDENTIFY.split(' ')
@@ -85,15 +85,13 @@ class Engine(EngineBase):
         return retcode == 0
 
     def _orientation(self, image):
-        return image
-        # XXX need to get the dimensions right after a transpose.
         if settings.THUMBNAIL_CONVERT.endswith('gm convert'):
             args = settings.THUMBNAIL_IDENTIFY.split()
             args.extend([ '-format', '%[exif:orientation]', image['source'] ])
             p = Popen(args, stdout=PIPE)
             p.wait()
             result = p.stdout.read().strip()
-            if result and result != 'unknown':
+            if result:
                 result = int(result)
                 options = image['options']
                 if result == 2:
