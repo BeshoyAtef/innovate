@@ -3,3 +3,5 @@ from www.models import *
 
 admin.site.register(contact)
 admin.site.register(radio_ad)
+admin.site.register(sorl_test)
+
