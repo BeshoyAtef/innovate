@@ -14,7 +14,7 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-
+    url(r'^admin/', include(admin.site.urls)),
     url(r'^email/', 'www.views.sendemail'),
     url(r'^upload/', 'www.views.add_album'),
     url(r'^pic/', 'www.views.upload_pic'),
@@ -36,6 +36,14 @@ urlpatterns = patterns('',
 
 
     
+
+    url(r'^base/', 'www.views.render_base'),
+
+
+    url(r'^base/', 'www.views.render_base'),
+    url(r'^radio/', 'www.views.render_radioAds'),
+
+
 
 
 )
