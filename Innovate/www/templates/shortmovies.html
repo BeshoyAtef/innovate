@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block header %}
+   <!-- <link href="{% static "css/bootstrap.css" %}" rel="stylesheet" media="screen"> -->
+  <link href="{% static "css/shortmovies.css" %}" rel="stylesheet" media="screen">
+  <!-- <link href="{% static "css/b.css" %}" rel="stylesheet" media="screen"> -->
+{% endblock %}
+<style type="text/css">
+		.promofont{
+		color: white;
+		font-family: 'Leckerli One', cursive;
+		}
+</style>
+{% block content %}
+{% load www_filters %}
+{% if wedding %}
+<div style="text-align:left; color:white;"><h1>Wedding Videos</h1></div>
+{% endif %}
+
+{% if doc %}
+<div style="text-align:left; color:white;"><h1>Documentary Videos</h1></div>
+{% endif %}
+
+{% if promo %}
+<div style="text-align:left; color:white;"><h1>Promo Videos</h1></div>
+{% endif %}
+
+<div class="row">
+<div class="span1"></div>
+<div class="span11">
+{% for video in list_of_videos %}
+<div id="video-content{{video.id}}" class="video_tag"><a href="#" id="close_icon" onClick="closeVideoDiv({{video.id}})" style="float: right;padding-right: 24px;padding-top: 7px;">close</a><div class="video">{{video.youtube_url|youtube_embed_url|safe }}</div></div>
+{% endfor %}
+
+{% for video in list_of_videos %}
+<div id="a{{video.id}}" class="span2"><img class="thumb_image" style="border-radius: 15px;" src="{{video.video_cover.url}}" onClick="showVideoDiv({{video.id}});"></div>
+{% endfor %}
+</div>
+</div>
+	<script type="text/javascript">
+	var videoDown = false;
+	var position_of_video = -1;
+	function showtitle(id){
+		$('#'+id).css('display','block');
+	}
+	function hidetitle(id){
+		$('#'+id).css('display','none');
+	}	
+	function showVideoDiv(id){
+		$('#navigation-bar').hide();
+		    if(!videoDown){
+		    	// var b = id-(id%5);
+		    	var a = id;	
+		    	var n = $("#a"+a).offset().top
+		    	$("#video-content"+id).css('padding-left','-95px')
+		    	$("#video-content"+id).slideDown("slow");
+		       		$('html, body').animate({
+		        	scrollTop: n
+		     		}, 3000);
+		        $('#'+id).css('padding-left','0px');
+		        $('#'+id).css('padding-top','0px');
+		    	videoDown = true;
+		    	position_of_video = id;   
+		  		}
+		  	
+		  	else{
+		  		var a = id;	
+		    	var n = $("#a"+a).offset().top
+		  		closeVideoDiv(position_of_video);
+		  		$("#video-content"+id).slideDown("slow");
+		        $('html, body').animate({
+		        	scrollTop: n
+		     	}, 3000);   
+				videoDown = true;
+				position_of_video = id;	
+					}
+
+  
+  			$.ajax({
+    url: '/testincrement/',
+    type: 'POST',
+    data: {
+      video : id,
+    },
+  });
+
+  	}
+	function closeVideoDiv(id){
+  		$('#navigation-bar').show();
+  		$("#video-content"+id).slideUp("slow");
+  		videoDown = false;
+  		position_of_video = -1;
+  	}
+	</script>
+	
+{% endblock %}
