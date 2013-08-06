@@ -24,7 +24,8 @@ urlpatterns = patterns('',
 
     url(r'^base/', 'www.views.render_base'),
     url(r'^radio/', 'www.views.render_radioAds'),
-
-
-
+    url(r'^sorl/', 'www.views.render_app_test'),
 )
+urlpatterns += patterns('django.views.static',
+        (r'media/(?P<path>.*)', 'serve', {'document_root': 'media'}),
+    )
