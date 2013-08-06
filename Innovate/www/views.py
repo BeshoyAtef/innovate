@@ -1,12 +1,28 @@
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
-
 from django.template import RequestContext, Context
-
 from django.core.mail import send_mail, BadHeaderError
 from www.models import *
 import soundcloud
+
+
+#Abdelrahman Maged-This view will redirect the user to the deletevideo.html page.
+def render_delete_video_page(request):
+	return render_to_response('deletevideo.html')
+
+#Abdelrahman Maged-This view will send a list of videos of the genre that the user selected.
+def render_videos_to_be_deleted(request,category):
+	print category
+	data =  video.objects.filter(video_genre = category)
+	return render_to_response('deletevideo.html',{'videos':data})
+
+#Abdelrahman Maged-This view delete the video with the specific id.
+def delete_video(request):
+	video_id = request.POST['video']
+	video.objects.get(pk=video_id).delete();
+	return HttpResponse('')
+
 
 def sendemail(request):
 	SenderName = request.POST['name']
