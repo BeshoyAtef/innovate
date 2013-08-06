@@ -11,7 +11,7 @@ class video(models.Model):
 	video_choices = (
 		('W', 'Wedding'),
 		('P', 'Promo'),
-		('W', 'Wedding'),
+		('D', 'Documentaries'),
 	)
 	video_genre = models.CharField(max_length=1, choices=video_choices)
 
