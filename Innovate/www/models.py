@@ -13,3 +13,26 @@ class radio_ad(models.Model):
 	url = models.TextField(max_length='1000')
 	def __unicode__(self):
 	    return self.title
+
+
+from filer.fields.image import FilerImageField
+from datetime import datetime
+class Gallery(models.Model):
+    title = models.CharField(max_length=255)
+    slug = models.SlugField()
+    pub_date = models.DateTimeField(default=datetime.now)
+  
+    def __unicode__(self):
+        return self.title
+    
+class GalleryImage(models.Model):
+    gallery = models.ForeignKey(Gallery)
+    title = models.CharField(max_length=255)
+    pub_date = models.DateTimeField(default=datetime.now)
+    image = FilerImageField()
+
+    def __unicode__(self):
+            return self.title
+
+
+

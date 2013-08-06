@@ -28,3 +28,7 @@ urlpatterns = patterns('',
 
 
 )
+urlpatterns += patterns('django.views.static',
+        (r'media/(?P<path>.*)', 'serve', {'document_root': 'media'}),
+    )
+
