@@ -14,12 +14,14 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
+    url(r'^admin/', include(admin.site.urls)),
+
 
     url(r'^email/', 'www.views.sendemail'),
     url(r'^upload/', 'www.views.add_album'),
     url(r'^pic/', 'www.views.upload_pic'),
     url(r'^Contact/', 'www.views.view_contact_us'),
-    url(r'^all/', 'www.views.pictures'),
+    # url(r'^all/', 'www.views.pictures'),
     url(r'^picc/', 'www.views.Albumshow'),
     url(r'^cover/', 'www.views.albumpic'),
     url(r'^showpic/', 'www.views.picshow'),
