@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block header %}
+	<script type="text/javascript" src="{% static "js/jquery-1.9.1.min.js" %}" ></script>
+	<script type="text/javascript" src="{% static "js/bootstrap.js" %}" ></script>
+	 <link href="{% static "css/bootstrap.css" %}" rel="stylesheet" media="screen">
+{% endblock %}
+{% block content %}
+<h2 style="color:white;">Please select the video genre of the video you want to delete </h2>
+<select id='video_genre_drop_down'>
+<option>-----</option>
+<option value="D">Documentary</option>
+<option value="P">Promo</option>
+<option value="W">Wedding</option>
+</select>
+
+<style type="text/css">
+h2{
+	color: white;
+}
+</style>
+<div id="fullbody">
+
+{% for v in videos %}
+<div onmouseout="hide_delete_div('{{v.id}}');" onmouseover="show_delete_div('{{v.id}}');" style="float:left;">
+<h2>{{v.title}}</h2>
+<div style="display:none" id="delete{{v.id}}"><label style="color:white;">Do you want to delete?<a data-toggle="modal" onClick="DeleteVideo('{{v.id}}');" href="#">Delete</a></label></div>	
+<img  style="height:250px;" src="{{v.video_cover.url}}">
+</div>
+{% endfor %}
+
+</div>
+<div style="display:none" id="myModal">
+<div  id="modalbeg" class="modal" style="top: 40%;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p>Are you sure that you want to delete this video</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="closebutton" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" id="deletebutton" class="btn btn-primary">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<script type="text/javascript">
+$('#video_genre_drop_down').change(function(){
+	window.location.replace('../../DeleteVideo?category='+$(this).val());
+});
+
+function DeleteVideo(id){
+	$('#fullbody').css('opacity','0.3');
+	$('#myModal').css('display','block');
+	var close = 'false';
+	var deleete = false;
+	$( "#closebutton" ).click(function() {
+  	$('#myModal').css('display','none');
+  	$('#fullbody').css('opacity','1')
+	}); 
+	$( "#deletebutton" ).click(function() {
+	  	$.ajax({
+	    url: '/confirmdelete/',
+	    type: 'POST',
+	    data: {
+	      "video":id ,
+	    },
+	    success: function(result){
+	      alert("Post has been hidden sucessfully");
+	      location.reload();
+	    },
+	  });
+	}); 
+
+
+}
+
+function show_delete_div(id){
+$('#delete'+id).css('display','block')
+}
+
+function hide_delete_div(id){
+$('#delete'+id).css('display','none')
+}
+
+
+</script>
+
+{% endblock %}

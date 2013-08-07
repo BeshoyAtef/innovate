@@ -7,6 +7,24 @@ from www.models import *
 from www.forms import *
 import soundcloud
 
+
+#Abdelrahman Maged-This view will redirect the user to the deletevideo.html page.
+def render_delete_video_page(request):
+	return render_to_response('deletevideo.html')
+
+#Abdelrahman Maged-This view will send a list of videos of the genre that the user selected.
+def render_videos_to_be_deleted(request,category):
+	print category
+	data =  video.objects.filter(video_genre = category)
+	return render_to_response('deletevideo.html',{'videos':data})
+
+#Abdelrahman Maged-This view delete the video with the specific id.
+def delete_video(request):
+	video_id = request.POST['video']
+	video.objects.get(pk=video_id).delete();
+	return HttpResponse('')
+
+
 #Abdelrahman Maged- This method gets the video-id from the post request. then it retrieves
 #the video object with the entered id and increment the number of views of it by one.
 #it returns an empty httpresponse.
