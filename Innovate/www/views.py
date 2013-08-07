@@ -39,6 +39,7 @@ def increment_number_of_views(request):
 #Abdelrahman Maged-This view returns to the shortmovies.html a list of all the wedding videos.
 def show_wedding_videos(request):
 	list_of_videos = video.objects.filter(video_genre='W')
+	print list_of_videos
 	return render_to_response('shortmovies.html',{'list_of_videos':list_of_videos, 'wedding':'wedding'})
 
 #Abdelrahman Maged-This view returns to the shortmovies.html a list of all the documentary videos.
@@ -50,7 +51,6 @@ def show_documentaries_videos(request):
 def show_promo_videos(request):
 	list_of_videos = video.objects.filter(video_genre='P')
 	return render_to_response('shortmovies.html',{'list_of_videos':list_of_videos,'promo':'promo'})
-
 
 #Abdelrahman Maged-This method get the form from the html. but first it checks whether 
 #the request is post or not. if it is it checks whether the form is valid or not. if the
@@ -132,7 +132,7 @@ def render_app_test(request):
 	img = 0
 	if imgs:
 		img = imgs[0]
-	return render_to_response('test.html',{'thumb':img},context_instance=RequestContext(request))
+	return render_to_response('test.html',{'thumb':imgs},context_instance=RequestContext(request))
 
 
 #Beshoy Atef-This Method render the Main Page for checking Perposes 
