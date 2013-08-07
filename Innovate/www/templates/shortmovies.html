@@ -43,7 +43,7 @@
 {% for video in list_of_videos %}
 <div id="a{{video.id}}" class="span2">
 	<p id="title{{video.id}}" class="p_title">{{video.title}}</p>
-	<img onmouseout="hidetitle({{video.id}})" onmouseover="displaytitle({{video.id}});" class="thumb_image" style="border-radius: 15px;" src="{{video.video_cover.url}}" onClick="showVideoDiv({{video.id}});"></div>
+	<img onmouseout="hidetitle({{video.id}})" onmouseover="displaytitle({{video.id}});" style="border-radius: 15px;width:170px;" src="{{video.video_cover.url}}" onClick="showVideoDiv({{video.id}});"></div>
 {% endfor %}
 </div>
 </div>
