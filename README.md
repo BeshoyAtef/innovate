@@ -1,8 +1,8 @@
-*Genral Requirements: 
+*Genral Requirements:*
  pip install requests
 
 
-*Requirements for sorl:
+*Requirements for sorl:*
   sudo apt-get update
 	sudo apt-get install memcached
 	sudo apt-get install python-memcache
