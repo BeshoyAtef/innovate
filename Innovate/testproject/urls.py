@@ -32,6 +32,8 @@ urlpatterns = patterns('',
 )
 
 urlpatterns += patterns('django.views.static',
+<<<<<<< HEAD
         (r'media/(?P<path>.*)', 'serve', {'document_root': settings.MEDIA_ROOT}),
         url(r'^sorl/', 'www.views.render_app_test'),
 )
+

@@ -30,5 +30,7 @@ class radio_ad(models.Model):
 	    return self.title
 
 
+
 class sorl_test(models.Model):
 	image=models.ImageField(upload_to='testsorl')
+
