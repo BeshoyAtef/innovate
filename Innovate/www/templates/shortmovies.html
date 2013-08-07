@@ -46,7 +46,7 @@
 <div id="a{{video.id}}" class="span2">
 	<p id="title{{video.id}}" class="p_title">{{video.title}}</p>
 	    {% thumbnail video.video_cover "170x170" as im %}
-		    <img onmouseout="hidetitle({{video.id}})" onmouseover="displaytitle({{video.id}});" style="border-radius: 15px;" src="{{ im.url }}" alt="{{ thumb.image.url }}">
+		    <img  onmouseout="hidetitle({{video.id}})" onmouseover="displaytitle({{video.id}});" style="border-radius: 15px;max-height:150px;" src="{{ im.url }}" alt="{{ thumb.image.url }}">
 		{% endthumbnail %}
 </div>
 {% endfor %}
