@@ -13,7 +13,10 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
+    (r'^admin/timeline/', include('admin_timeline.urls')),
     url(r'^admin/', include(admin.site.urls)),
+
+    
     url(r'^email/', 'www.views.sendemail'),
     url(r'^Contact/', 'www.views.view_contact_us'),
     # url(r'^test/', 'www.views.delete_post'),
@@ -30,4 +33,5 @@ urlpatterns = patterns('',
 
 urlpatterns += patterns('django.views.static',
         (r'media/(?P<path>.*)', 'serve', {'document_root': settings.MEDIA_ROOT}),
-    )
+        url(r'^sorl/', 'www.views.render_app_test'),
+)

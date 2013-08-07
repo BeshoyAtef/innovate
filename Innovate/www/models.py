@@ -28,3 +28,7 @@ class radio_ad(models.Model):
 	url = models.TextField(max_length='1000')
 	def __unicode__(self):
 	    return self.title
+
+
+class sorl_test(models.Model):
+	image=models.ImageField(upload_to='testsorl')
