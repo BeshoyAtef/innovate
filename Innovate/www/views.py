@@ -71,9 +71,7 @@ def Albumshow(request):
 
 def picshow(request):
 	albumid= request.GET['albumid']
-	print albumid
 	pic = Pictures.objects.filter(album_id=albumid)
-	print pic
 	return render_to_response('cover.html',{'pic':pic })
 
 def albumpic(request):
@@ -84,11 +82,15 @@ def cover(request):
 	picid = request.GET['picture']
 	picobj = Pictures.objects.get(pk=picid)
 	albumid = picobj.album_id
-	if albumid is not None:
-		if picid is not None:
-			cover_pic = AblumCover.objects.create(picture_id=picid, album_id = albumid)
-			cover_pic.save()
-			return HttpResponse("done")
+
+	if AblumCover.objects.get(album = albumid) is None :
+		AblumCover.objects.create(picture_id=picid, album_id = albumid)
+		return HttpResponse("done")
+	else : 
+          AblumCover.objects.get(album=albumid).delete()
+
+          AblumCover.objects.create(picture_id=picid , album_id=alreadyalbum)
+          return HttpResponse("dones")
 
 
 def aboutuspage(request):
@@ -189,3 +191,19 @@ def render_radioAds(request):
 	# print embed_info['html']
 	return render_to_response('radio.html', {'track_list':track_list},context_instance=RequestContext(request))
 
+def albums_gal(request):
+	album = AblumCover.objects.all()
+	return render_to_response('wedding.html', {'album':album})
+
+def weddinggallery(request):
+	print "imhere"
+	albumid = request.GET['album']
+	print albumid
+	picture = Pictures.objects.filter(album_id=albumid)
+	print picture
+	return render_to_response('gallery.html',{'picture':picture})
+
+def aboutusrendering(request):
+	about = AboutUs.objects.all()
+	print about
+	return render_to_response('about.html',{'about':about})

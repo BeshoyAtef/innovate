@@ -30,6 +30,9 @@ urlpatterns = patterns('',
     url(r'^albumshow/', 'www.views.album_pic'),
     url(r'^deletepic/', 'www.views.render_pic'),
     url(r'^deleted/', 'www.views.delete_pic'),
+    url(r'^wedding/', 'www.views.albums_gal'),
+    url(r'^gallery/', 'www.views.weddinggallery'),
+    url(r'^about/', 'www.views.aboutusrendering'),
 
 
 
