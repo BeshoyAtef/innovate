@@ -1,11 +1,5 @@
 from django.contrib import admin
 from www.models import *
-
-admin.site.register(contact)
-admin.site.register(radio_ad)
-
-
-
 from django.contrib import admin
 from django.forms.fields import Field
 from django import forms
@@ -13,14 +7,11 @@ from django.core.urlresolvers import reverse
 from django.utils import simplejson
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
-
-from filer.models import Image
-
-
-        
+from filer.models import Image    
 from filer import settings as filer_settings
 from filer_gallery.widgets import UploadWidget
 from filer_gallery.utils import handle_upload, UploadException
+
 
 class GalleryImageAdminInline(admin.TabularInline):
     model = GalleryImage
@@ -39,9 +30,12 @@ class GalleryImageAdmin(admin.ModelAdmin):
     list_display = ('__unicode__','gallery', 'title', 'image')
     list_editable = ('title', 'image')
     list_filter = ('gallery',)
-    
+
+
+admin.site.register(contact)
+admin.site.register(radio_ad)    
 admin.site.register(Gallery, GalleryAdmin)
 admin.site.register(GalleryImage, GalleryImageAdmin)
-
+admin.site.register(sorl_test)
 
 

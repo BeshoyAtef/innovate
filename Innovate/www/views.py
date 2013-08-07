@@ -27,7 +27,13 @@ def view_contact_us(request):
 def render_base(request):
 	return render_to_response('base.html',context_instance=RequestContext(request))
 
-
+#Beshoy Atef-This Method render the sorl test Page for checking Perposes 
+def render_app_test(request):
+	imgs = sorl_test.objects.all()
+	img = 0
+	if imgs:
+		img = imgs[0]
+	return render_to_response('test.html',{'thumb':img},context_instance=RequestContext(request))
 
 
 #Beshoy Atef-This Method render the Main Page for checking Perposes 

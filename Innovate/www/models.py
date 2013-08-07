@@ -15,6 +15,7 @@ class radio_ad(models.Model):
 	    return self.title
 
 
+
 from filer.fields.image import FilerImageField
 from datetime import datetime
 class Gallery(models.Model):
@@ -34,5 +35,6 @@ class GalleryImage(models.Model):
     def __unicode__(self):
             return self.title
 
-
+class sorl_test(models.Model):
+	image=models.ImageField(upload_to='testsorl')
 
