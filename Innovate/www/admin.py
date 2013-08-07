@@ -1,6 +1,5 @@
 from django.contrib import admin
 from www.models import *
-from django.contrib import admin
 from django.forms.fields import Field
 from django import forms
 from django.core.urlresolvers import reverse
@@ -31,7 +30,7 @@ class GalleryImageAdmin(admin.ModelAdmin):
     list_editable = ('title', 'image')
     list_filter = ('gallery',)
 
-
+admin.site.register(video)
 admin.site.register(contact)
 admin.site.register(radio_ad)    
 admin.site.register(Gallery, GalleryAdmin)
