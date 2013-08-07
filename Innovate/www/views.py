@@ -82,15 +82,13 @@ def cover(request):
 	picid = request.GET['picture']
 	picobj = Pictures.objects.get(pk=picid)
 	albumid = picobj.album_id
-
-	if AblumCover.objects.get(album = albumid) is None :
-		AblumCover.objects.create(picture_id=picid, album_id = albumid)
-		return HttpResponse("done")
-	else : 
-          AblumCover.objects.get(album=albumid).delete()
-
-          AblumCover.objects.create(picture_id=picid , album_id=alreadyalbum)
-          return HttpResponse("dones")
+	if AblumCover.objects.filter(album_id=albumid).exists():
+		AblumCover.objects.get(album_id = albumid).delete()
+		AblumCover.objects.create(album_id=albumid,picture_id=picid)
+		return HttpResponse('success')
+	else:
+		AblumCover.objects.create(album_id=albumid,picture_id=picid)
+		return HttpResponse('success')
 
 
 def aboutuspage(request):
