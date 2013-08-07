@@ -20,17 +20,17 @@ def increment_number_of_views(request):
 
 #Abdelrahman Maged-This view returns to the shortmovies.html a list of all the wedding videos.
 def show_wedding_videos(request):
-	list_of_videos = video.objects.filter(video_genre='W')
+	list_of_videos = video.objects.filter(video_genre='w')
 	return render_to_response('shortmovies.html',{'list_of_videos':list_of_videos, 'wedding':'wedding'})
 
 #Abdelrahman Maged-This view returns to the shortmovies.html a list of all the documentary videos.
 def show_documentaries_videos(request):
-	list_of_videos = video.objects.filter(video_genre='D')
+	list_of_videos = video.objects.filter(video_genre='d')
 	return render_to_response('shortmovies.html',{'list_of_videos':list_of_videos,'doc':'doc'})
 
 #Abdelrahman Maged-'This video returns to the shortmovies.html a list of all promo videos'
 def show_promo_videos(request):
-	list_of_videos = video.objects.filter(video_genre='P')
+	list_of_videos = video.objects.filter(video_genre='p')
 	return render_to_response('shortmovies.html',{'list_of_videos':list_of_videos,'promo':'promo'})
 
 

@@ -9,7 +9,7 @@ def test():
 # converts youtube URL into embed HTML
 # value is url
 def youtube_embed_url(value):
-    string = ''
+    res = ''
     # res = 'test'
     # for i in range(1, len(value)-1):
     #     string = string + value[i]

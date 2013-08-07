@@ -14,38 +14,50 @@
 {% block content %}
 {% load www_filters %}
 {% if wedding %}
-<div style="text-align:left; color:white;"><h1>Wedding Videos</h1></div>
+<div style="text-align:left; color:white;margin-bottom: -12px;"><h1>Wedding Videos</h1></div>
 {% endif %}
 
 {% if doc %}
-<div style="text-align:left; color:white;"><h1>Documentary Videos</h1></div>
+<div style="text-align:left; color:white;margin-bottom: -12px;"><h1>Documentary Videos</h1></div>
 {% endif %}
 
 {% if promo %}
-<div style="text-align:left; color:white;"><h1>Promo Videos</h1></div>
+<div style="text-align:left; color:white;margin-bottom: -12px;"><h1>Promo Videos</h1></div>
 {% endif %}
 
 <div class="row">
-<div class="span1"></div>
+
 <div class="span11">
 {% for video in list_of_videos %}
-<div id="video-content{{video.id}}" class="video_tag"><a href="#" id="close_icon" onClick="closeVideoDiv({{video.id}})" style="float: right;padding-right: 24px;padding-top: 7px;">close</a><div class="video">{{video.youtube_url|youtube_embed_url|safe }}</div></div>
+<div id="video-content{{video.id}}" class="video_tag"><a href="#" id="close_icon" onClick="closeVideoDiv({{video.id}})" style="float: right;padding-right: 24px;padding-top: 7px;">close</a>>
+<div style="float:left;padding-left: 120px;padding-top:25px;">
+					<label style="float:left;">Title: {{video.title}} </label><br>
+					<label style="float:left;">Photogrpaher: {{video.photographer}}</label><br>
+					<label style="float:left;"> Producer: {{video.producer}}</label><br>
+					<label style="float:left;">Director : {{video.director}}</label><br>
+					<label style="float:left;">Number of views: {{video.number_of_views}}</label><br>
+				</div>
+	<div class="video">{{video.youtube_url|youtube_embed_url|safe }}</div></div>
 {% endfor %}
 
 {% for video in list_of_videos %}
-<div id="a{{video.id}}" class="span2"><img class="thumb_image" style="border-radius: 15px;" src="{{video.video_cover.url}}" onClick="showVideoDiv({{video.id}});"></div>
+<div id="a{{video.id}}" class="span2">
+	<p id="title{{video.id}}" class="p_title">{{video.title}}</p>
+	<img onmouseout="hidetitle({{video.id}})" onmouseover="displaytitle({{video.id}});" class="thumb_image" style="border-radius: 15px;" src="{{video.video_cover.url}}" onClick="showVideoDiv({{video.id}});"></div>
 {% endfor %}
 </div>
 </div>
 	<script type="text/javascript">
-	var videoDown = false;
-	var position_of_video = -1;
-	function showtitle(id){
-		$('#'+id).css('display','block');
+	function displaytitle(id){
+		$('#title'+id).css('opacity','1');
 	}
 	function hidetitle(id){
-		$('#'+id).css('display','none');
-	}	
+		$('#title'+id).css('opacity','0');
+	}
+	var videoDown = false;
+	var position_of_video = -1;
+
+	
 	function showVideoDiv(id){
 		$('#navigation-bar').hide();
 		    if(!videoDown){
