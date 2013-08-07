@@ -138,7 +138,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'www',
     'soundcloud',
-    'sorl.thumbnail'
+    'sorl.thumbnail',
     'admin_timeline',
     'filer',
     'mptt',
