@@ -37,6 +37,7 @@ class AboutUs(models.Model):
 	picture4 = models.ImageField(upload_to='media')
 
 
+
 class video(models.Model):
 	youtube_url = models.CharField(max_length='150')
 	video_cover = models.ImageField(upload_to='media')

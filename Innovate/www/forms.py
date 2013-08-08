@@ -40,3 +40,6 @@ class ContactForm(forms.Form):
 	email = forms.CharField(max_length='50', required=True)
 
 
+class PicForm(forms.Form):
+	photo = forms.ImageField()
+
