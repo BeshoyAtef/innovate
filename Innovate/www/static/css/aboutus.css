@@ -109,6 +109,7 @@ ul.accordion li .bgDescription{
     left:0px;
     width:100%;
     display:none;
+    z-index: 0;
 }
 .nav{
     float :right;

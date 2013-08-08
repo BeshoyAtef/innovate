@@ -73,73 +73,72 @@
             .logo{
                 margin-top:-15px;
             }
+            ul.accordion li.bg1{
+                background-image:url({{about.picture4.url}});
+            }
+            ul.accordion li.bg2{
+                background-image:url({{about.picture3.url}});
+            }
+            ul.accordion li.bg3{
+                background-image:url({{about.picture2.url}});
+            }
+            ul.accordion li.bg4{
+                background-image:url({{about.picture1.url}});
+            }
 
         </style>
 
         <div id="content">
           
-            </div>
+            
              
-              {% for a in about %}
+              
 <!-- <div id="testclick"><h3>Teeeeeeeeeeeeeest</h3></div> -->
             <ul class="accordion" id="accordion" >
-                <li onClick="showVideo()" class="bg1">
-                    <div  class="heading" id="vid" >Videography</div>
-                    <!-- <div class="bgDescription"></div> -->
-                    
-                        <iframe src="http://www.facebook.com/video/embed?video_id=295364757209116" width="720" height="576" frameborder="0"></iframe>
-                  
-                    <div id="testclick" class="viddescription">
-                        <div id="video-content">
-                        <h2>{{a.title}}</h2>
-                        <p>
-                        {{a.description}}
-                        </p>
+
+                <li  class="bg1">
+
+                    <div  class="heading" id="vid" >{{about.title4}}:</div>
+                    <div class="bgDescription" ></div>
+                    <div class="description">
+                        <h2>{{about.title4}}:</h2>
+                        <p>{{about.description4}}</p>
                         <a href="#">more &rarr;</a>
-                        </div>
                     </div>
                 </li>
                 <li class="bg2">
-                    <div class="heading">Photography:</div>
-                    <div class="bgDescription"></div>
+                    <div class="heading">{{about.title3}}</div>
+                    <div class="bgDescription" ></div>
                     <div class="description">
-                        <h2>Photography:</h2>
-                        <p>Professional crew from: - Photographers,  Videographers,Directors and Editors. 
-                            You Can Feel The Difference HD Quality, Wireless
-                            Sense of Talent.
-
-                            Our Photography Teams main purpose is capturing every single detail and keep the precious shots in their crystal pack you can see your event without missing details with very High Quality.
-
-                            
-                             </p>
+                        <h2>{{about.title3}}:</h2>
+                        <p>{{about.description3}}</p>
                         <a href="#">more &rarr;</a>
                     </div>
 
                 </li>
                 <li class="bg3">
-                    <div class="heading">Weddings</div>
-                    <div class="bgDescription"></div>
+                    <div class="heading">{{about.title2}}</div>
+                    <div class="bgDescription"  ></div>
                     <div class="description">
-                        <h2>Weddings</h2>
-                        <p>Commercial, Lifestyle videography and photography.Specializing in Weddings, Engagements,Baby Showers,Videoclips and funbooths.</p>
+                        <h2>{{about.title2}}</h2>
+                        <p>{{about.description2}}</p>
                         <a href="#">more &rarr;</a>
                     </div>
 
                 </li>
                 <li class="bg4 bleft">
-                    <div class="heading">About us</div>
-                    <div class="bgDescription"></div>
+                    <div class="heading">{{about.title1}}</div>
+                    <div class="bgDescription" ></div>
                     <div class="description">
-                        <h2>About us </h2>
-                        <p>Innovate Media Production for : Advertising campaigns, featured films, Video Clips and documentry films
-                        </p>
+                        <h2>{{about.title1}}</h2>
+                        <p>{{about.description1}}</p>
                         <a href="#">more &rarr;</a>
                     </div>
 
                 </li>
             </ul>
-        </div>
-     {% endfor %}
+       </div>
+    
         <!-- The JavaScript -->
      
         <script type="text/javascript">

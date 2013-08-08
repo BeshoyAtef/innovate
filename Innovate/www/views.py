@@ -307,6 +307,7 @@ def weddinggallery(request):
 	return render_to_response('gallery.html',{'picture':picture})
 
 def aboutusrendering(request):
-	about = AboutUs.objects.all()
+	abouts = AboutUs.objects.all()
+	about=abouts[0]
 	print about
 	return render_to_response('about.html',{'about':about})
