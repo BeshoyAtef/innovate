@@ -19,11 +19,11 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/timeline/', include('admin_timeline.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^email/', 'www.views.sendemail'),
+
+    
     url(r'^upload/', 'www.views.add_album'),
     url(r'^pic/', 'www.views.upload_pic'),
     url(r'^Contact/', 'www.views.view_contact_us'),
-    url(r'^all/', 'www.views.pictures'),
     url(r'^picc/', 'www.views.Albumshow'),
     url(r'^cover/', 'www.views.albumpic'),
     url(r'^showpic/', 'www.views.picshow'),
@@ -38,14 +38,7 @@ urlpatterns = patterns('',
     url(r'^gallery/', 'www.views.weddinggallery'),
     url(r'^about/', 'www.views.aboutusrendering'),
 
-
-
-
-
-    
-
     url(r'^base/', 'www.views.render_base'),
-
 
     #beshoy renders-front end related urls
     url(r'^sorl/', 'www.views.render_app_test'),
@@ -56,7 +49,6 @@ urlpatterns = patterns('',
     url(r'^weddingclips/', 'www.views.show_wedding_videos'),
     url(r'^documentaryclips/', 'www.views.show_documentaries_videos'),
     url(r'^promoclips/', 'www.views.show_promo_videos'),
-
 
     # abdo's functions-bk end related urls
     url(r'^email/', 'www.views.sendemail'),

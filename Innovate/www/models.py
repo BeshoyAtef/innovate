@@ -22,9 +22,20 @@ class AblumCover(models.Model):
 	album = models.ForeignKey(Album)
 
 class AboutUs(models.Model):
-	title=models.CharField(max_length=50)
-	description=models.CharField(max_length=700)
-	picture = models.ImageField(upload_to='media', blank=True)
+	maintitle=models.CharField(max_length=50)
+	title1=models.CharField(max_length=50)
+	description1=models.TextField(max_length='1000')
+	picture1 = models.ImageField(upload_to='media')
+	title2=models.CharField(max_length=50)
+	description2=models.TextField(max_length='1000')
+	picture2 = models.ImageField(upload_to='media')
+	title3=models.CharField(max_length=50)
+	description3=models.TextField(max_length='1000')
+	picture3 = models.ImageField(upload_to='media')
+	title4=models.CharField(max_length=50)
+	description4=models.TextField(max_length='1000')
+	picture4 = models.ImageField(upload_to='media')
+
 
 
 class video(models.Model):

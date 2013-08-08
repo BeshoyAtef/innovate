@@ -46,15 +46,15 @@ ul.sdt_menu li span.sdt_wrap{
 	z-index:12;
 	top:15px;
 	left:-7px;
-	width:160px;
-	height:40px;
+/*	width:160px;
+*/	height:40px;
 	z-index:15;
 }
 ul.sdt_menu li span.sdt_active{
 	position:absolute;
 	background:#111;
-	top:65px;
-	width:160px;
+/*	top:65px;
+*/	width:160px;
 	height:0px;
 	left:0px;
 	z-index:14;
@@ -71,10 +71,12 @@ ul.sdt_menu li div.sdt_box a{
 }
 ul.sdt_menu li span span.sdt_link{
 	color: #fff;
-	font-size: 19px;
+	font-size: 20px;
 	float: left;
 	clear: both;
 	font-weight: bold;
+	font-family: 'Jura', sans-serif;
+
 }
 ul.sdt_menu li span span.sdt_descr{
 	color:#0B75AF;
@@ -89,7 +91,7 @@ ul.sdt_menu li div.sdt_box{
 	position:absolute;
 	width:160px;
 	overflow:hidden;
-	height:150px;
+/*	height:150px;*/
 	top:65px;
 	left:0px;
 	display:none;
