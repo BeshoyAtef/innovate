@@ -1,0 +1,40 @@
+	{% load staticfiles %}
+<html>
+<head>
+  <script type="text/javascript" src="{% static "js/jquery-1.9.1.min.js" %}" ></script>
+  <script type="text/javascript" src="{% static "js/jquery.min.js" %}" ></script>
+</head>
+<body>
+
+
+<div id = "selectpic">
+              {% for p in pic %}
+             <img  onClick='deletepic({{p.id}})' src = '{{p.picture1.url}}'></img>
+          
+                 {% endfor %}
+</div>
+
+
+
+
+<script type="text/javascript">
+
+function deletepic(selectpic){
+window.location.replace("/deleted/?picture="+selectpic)
+
+};
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

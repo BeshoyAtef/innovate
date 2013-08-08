@@ -1,7 +1,11 @@
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
+from django.template import loader, Context
 from django.template import RequestContext, Context
+from django import forms 
+from www.forms import *
+from www.models import*
 from django.core.mail import send_mail, BadHeaderError
 from www.models import *
 from www.forms import *
@@ -38,19 +42,19 @@ def increment_number_of_views(request):
 
 #Abdelrahman Maged-This view returns to the shortmovies.html a list of all the wedding videos.
 def show_wedding_videos(request):
-	list_of_videos = video.objects.filter(video_genre='w')
+	list_of_videos = video.objects.filter(video_genre='W')
+	print list_of_videos
 	return render_to_response('shortmovies.html',{'list_of_videos':list_of_videos, 'wedding':'wedding'})
 
 #Abdelrahman Maged-This view returns to the shortmovies.html a list of all the documentary videos.
 def show_documentaries_videos(request):
-	list_of_videos = video.objects.filter(video_genre='d')
+	list_of_videos = video.objects.filter(video_genre='D')
 	return render_to_response('shortmovies.html',{'list_of_videos':list_of_videos,'doc':'doc'})
 
 #Abdelrahman Maged-'This video returns to the shortmovies.html a list of all promo videos'
 def show_promo_videos(request):
-	list_of_videos = video.objects.filter(video_genre='p')
+	list_of_videos = video.objects.filter(video_genre='P')
 	return render_to_response('shortmovies.html',{'list_of_videos':list_of_videos,'promo':'promo'})
-
 
 #Abdelrahman Maged-This method get the form from the html. but first it checks whether 
 #the request is post or not. if it is it checks whether the form is valid or not. if the
@@ -122,6 +126,143 @@ def view_contact_us(request):
 	contact_obj = contact_obj[contact_obj.count()-1]
 	return render_to_response('contactus.html', {'contact_obj':contact_obj})
 
+
+
+def add_album(request):
+
+	if request.method == 'POST':
+		form = AlbumForm(request.POST, request.FILES)
+		if form.is_valid():
+			album = Album.objects.create(title = form.cleaned_data['title'], description= form.cleaned_data['description'],event_date=form.cleaned_data['event_date'])
+			return HttpResponseRedirect('/picc/')
+		else:
+			return render_to_response('upload.html', {'form': form}, context_instance=RequestContext(request))
+	else:
+		form = AlbumForm()
+		context = {'form': form}
+		return render_to_response('upload.html', context, context_instance=RequestContext(request))
+
+def upload_pic(request):
+	# albumid = request.GET['album']
+
+	if request.method == 'POST': # If the form has been submitted...
+		albumid = request.POST['albumid']
+		if albumid is not None: 
+			form = PicForm(request.POST, request.FILES)
+			albumid = request.POST['albumid'] 
+			if form.is_valid(): # All validation rules pass
+				pic = Pictures(picture1= form.cleaned_data['photo'], album = Album.objects.get(pk=albumid))
+				pic.save()
+				return render_to_response('pic.html', {'pic': pic , 'form':form , 'upload':'true'}, context_instance=RequestContext(request))
+				
+
+			
+			else:
+				form = PicForm() # An unbound form
+
+	else: 
+    #add our registration form to context
+		albumid=request.GET.get('albumid','');
+		form = PicForm(initial={'albumid': albumid })
+		return render_to_response('pic.html', {'form': form ,'upload':'true'})
+
+def Albumshow(request):
+	album = Album.objects.all()
+	return render_to_response('pic.html', {'album':album ,'selectingAlbum':'true'})
+
+def picshow(request):
+	albumid= request.GET['albumid']
+	pic = Pictures.objects.filter(album_id=albumid)
+	return render_to_response('cover.html',{'pic':pic })
+
+def albumpic(request):
+	album = Album.objects.all()
+	return render_to_response('cover.html',{'album':album})
+
+def cover(request):
+	picid = request.GET['picture']
+	picobj = Pictures.objects.get(pk=picid)
+	albumid = picobj.album_id
+	if AblumCover.objects.filter(album_id=albumid).exists():
+		AblumCover.objects.get(album_id = albumid).delete()
+		AblumCover.objects.create(album_id=albumid,picture_id=picid)
+		return HttpResponse('success')
+	else:
+		AblumCover.objects.create(album_id=albumid,picture_id=picid)
+		return HttpResponse('success')
+
+
+def aboutuspage(request):
+	if request.method == 'POST':
+		form = aboutusForm(request.POST, request.FILES)
+		if form.is_valid():
+			about = AboutUs.objects.create(title = form.cleaned_data['title'], description= form.cleaned_data['description'],picture=form.cleaned_data['photo'])
+			about.save()
+			return HttpResponse('information added')
+		else:
+			
+			return render_to_response('aboutus.html',{'form':form},context_instance=RequestContext(request))
+	else:
+		form = aboutusForm()
+		context = {'form': form}
+		return render_to_response('aboutus.html', context, context_instance=RequestContext(request))
+
+
+def renderalbum(request):
+	album = Album.objects.all()
+	return render_to_response('deleteAlbum.html',{'album':album})
+
+
+
+
+# def deletealbum(request):
+# 	album = renderalbum(request)
+# 	return render_to_response('deleteAlbum.html',{'album':album})
+# 	print "im here "
+# 	selectedalbum = request.GET['albumid']
+# 	print selectedalbum
+# 	if selectedalbum is not None:
+# 		thealbum = Album.objects.get(pk=selectedalbum)
+# 		thealbum.delete()
+# 		return HttpResponse ("album has been delete")
+
+
+def delete_album(request):
+	albumid = request.POST['albumid']
+	print albumid
+	thealbum = Album.objects.get(pk=albumid)
+	thealbum.delete()
+	return HttpResponse("deleted")
+
+def album_pic(request):
+	album = Album.objects.all()
+	return render_to_response('albumshow.html',{'album':album})
+
+def render_pic(request):
+	albumid= request.GET['albumid']
+	print albumid
+	pic = Pictures.objects.filter(album_id=albumid)
+	print pic
+	return render_to_response('deletepic.html',{'pic':pic })
+
+def delete_pic(request):
+	picid = request.GET['picture']
+	pic = Pictures.objects.get(pk=picid)
+	if picid is not None:
+		delete_pic = Pictures.objects.get(pk=picid)
+		delete_pic.delete()
+		return HttpResponse("done")
+
+
+
+
+
+
+
+
+
+
+
 #Beshoy Atef-This Method render the Main Page for checking Perposes 
 def render_base(request):
 	return render_to_response('base.html',context_instance=RequestContext(request))
@@ -132,7 +273,7 @@ def render_app_test(request):
 	img = 0
 	if imgs:
 		img = imgs[0]
-	return render_to_response('test.html',{'thumb':img},context_instance=RequestContext(request))
+	return render_to_response('test.html',{'thumb':imgs},context_instance=RequestContext(request))
 
 
 #Beshoy Atef-This Method render the Main Page for checking Perposes 
@@ -152,3 +293,20 @@ def test(request):
 	# print embed_info
 	# print embed_info['html']
 	return render_to_response('radio.html', {'track_list':track_list},context_instance=RequestContext(request))
+
+def albums_gal(request):
+	album = AblumCover.objects.all()
+	return render_to_response('wedding.html', {'album':album})
+
+def weddinggallery(request):
+	print "imhere"
+	albumid = request.GET['album']
+	print albumid
+	picture = Pictures.objects.filter(album_id=albumid)
+	print picture
+	return render_to_response('gallery.html',{'picture':picture})
+
+def aboutusrendering(request):
+	about = AboutUs.objects.all()
+	print about
+	return render_to_response('about.html',{'about':about})

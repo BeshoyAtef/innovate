@@ -1,0 +1,41 @@
+{% load staticfiles %}
+
+<html>
+<head>
+  <script type="text/javascript" src="{% static "js/jquery-1.9.1.min.js" %}" ></script>
+  <script type="text/javascript" src="{% static "js/jquery.min.js" %}" ></script>
+</head>
+<body>
+
+
+    <div class = "selectAlbum">
+
+			<p> click on the ablum you wish to delete </p>
+               {% for a in album %}
+    <label onClick='delete1("{{a.id}}");'>{{a.title}}</label> 
+                {% endfor %}                 
+        
+
+	</div>
+
+<script>
+function delete1(id)
+  {
+    $.ajax({
+    url: '/albumdelete/',
+    type: 'POST',
+    data: {
+      "albumid":id ,
+    },
+    success: function(result){
+      alert("album has been hidden sucessfully");
+
+    },
+  });
+}
+</script>
+
+
+
+</body>
+</html>

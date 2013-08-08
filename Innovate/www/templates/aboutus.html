@@ -1,0 +1,48 @@
+	{% load staticfiles %}
+
+<html>
+<head>
+  <script type="text/javascript" src="{% static "js/jquery-1.9.1.min.js" %}" ></script>
+  <script type="text/javascript" src="{% static "js/jquery.min.js" %}" ></script>
+</head>
+<body>
+
+	<div class "aboutus">
+		<p> Add about us information: </p>
+		<form enctype="multipart/form-data" method="post" action="">{% csrf_token %}
+	        <div class = "aboutus">
+	        
+				{% if form.errors %}<p>Please correct the following fields:</p>{% endif %}
+			</div>
+			<div class="aboutus">
+				<label > Title </label>
+		        {% if form.title.errors %}<p class="error">{{ form.title.errors }}</p>{% endif %}
+		       
+		        <p>{{ form.title }}</p>
+			</div>
+			<div class="aboutus">
+				<label > description </label>
+		        {% if form.description.errors %}<p class="error">{{ form.description.errors }}</p>{% endif %}
+		       
+		        <p>{{ form.description }}</p>
+			</div>
+			<div class="aboutus">
+				<label > picture</label>
+		        {% if form.photo.errors %}<p class="error">{{ form.photo.errors }}</p>{% endif %}
+		       
+		        <p>{{ form.photo}}</p>
+			</div>
+			<div class = "submit">
+			 <input type="submit" value="Submit">
+			</div>
+        </div>
+		</form>
+	</div>
+
+		    
+
+
+		
+
+</body>
+</html>
