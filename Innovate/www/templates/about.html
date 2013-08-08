@@ -1,0 +1,173 @@
+{% extends "base.html"%}
+{% load staticfiles %}
+{% block header %}
+ <script type="text/javascript" src="{% static "js/jquery.min.js" %}" ></script>
+ <link href='http://fonts.googleapis.com/css?family=Jura' rel='stylesheet' type='text/css'>
+>
+    
+ <link href="{% static "css/aboutus.css" %}" rel="stylesheet" media="screen">
+
+
+
+{% endblock %}
+{% block content %}
+    
+        <style>
+            *{
+                margin:0;
+                padding:0;
+            }
+            body{
+                font-family:Arial;
+                background:rgb(68,2,2); ;
+            }
+            a{
+                color:#444;
+            }
+            a:hover{
+                color:#999;
+            }
+            .title{
+                width:500px;
+                height:152px;
+                position:absolute;
+                top:0px;
+                left:0px;
+                background:transparent url(title.png) no-repeat top left;
+            }
+            a.back{
+                background:transparent url(back.png) no-repeat top left;
+                position:fixed;
+                width:150px;
+                height:27px;
+                outline:none;
+                bottom:0px;
+                left:0px;
+            }
+            #content{
+                margin:0 auto;
+            }
+            .reference{
+                clear:both;
+                top:300px;
+                left:0px;
+                position:absolute;
+                text-align:right;
+                width:400px;
+                padding:20px;
+                background-color:#fff;
+                -moz-box-shadow:1px 3px 15px #ddd;
+                -webkit-box-shadow:1px 3px 15px #ddd;
+                box-shadow:1px 3px 15px #ddd;
+            }
+            .reference p a{
+                text-transform:uppercase;
+                text-shadow:1px 1px 1px #fff;
+                color:#666;
+                text-decoration:none;
+                font-size:10px;
+            }
+            .reference p a:hover{
+                color:#333;
+            }
+            .logo{
+                margin-top:-15px;
+            }
+            ul.accordion li.bg1{
+                background-image:url({{about.picture4.url}});
+            }
+            ul.accordion li.bg2{
+                background-image:url({{about.picture3.url}});
+            }
+            ul.accordion li.bg3{
+                background-image:url({{about.picture2.url}});
+            }
+            ul.accordion li.bg4{
+                background-image:url({{about.picture1.url}});
+            }
+        </style>
+
+        <div id="content" >
+          
+            
+             
+              <center><h1 
+                style="color: #fff;clear: both;
+                font-weight: bold;
+                font-family: 'Jura', sans-serif;">
+                {{about.maintitle}}</h1></center>
+<!-- <div id="testclick"><h3>Teeeeeeeeeeeeeest</h3></div> -->
+
+            <ul class="accordion" id="accordion"  style="margin-top: 50px">
+
+                <li  class="bg1">
+                    <div  class="heading" id="vid" >{{about.title4}}</div>
+                    <div class="bgDescription" ></div>
+                    <div class="description">
+                        <h2>{{about.title4}}:</h2>
+                        <p>{{about.description4}}</p>
+                        <a href="#">more &rarr;</a>
+                    </div>
+                </li>
+                <li class="bg2">
+                    <div class="heading">{{about.title3}}</div>
+                    <div class="bgDescription" ></div>
+                    <div class="description">
+                        <h2>{{about.title3}}:</h2>
+                        <p>{{about.description3}}</p>
+                        <a href="#">more &rarr;</a>
+                    </div>
+
+                </li>
+                <li class="bg3">
+                    <div class="heading">{{about.title2}}</div>
+                    <div class="bgDescription"  ></div>
+                    <div class="description">
+                        <h2>{{about.title2}}</h2>
+                        <p>{{about.description2}}</p>
+                        <a href="#">more &rarr;</a>
+                    </div>
+
+                </li>
+                <li class="bg4 bleft">
+                    <div class="heading">{{about.title1}}</div>
+                    <div class="bgDescription" ></div>
+                    <div class="description">
+                        <h2>{{about.title1}}</h2>
+                        <p>{{about.description1}}</p>
+                        <a href="#">more &rarr;</a>
+                    </div>
+
+                </li>
+            </ul>
+       </div>
+        <!-- The JavaScript -->
+     
+        <script type="text/javascript">
+            $("#testclick").click(function() {
+                $('#video-content').hide();
+            });    
+            $(function() {
+                $('#accordion > li').hover(
+                    function () {
+                        var $this = $(this);
+                        $this.stop().animate({'width':'480px'},500);
+                        $('.heading',$this).stop(true,true).fadeOut();
+                        $('.bgDescription',$this).stop(true,true).slideDown(500);
+                        $('.description',$this).stop(true,true).fadeIn();
+                    },
+                    function () {
+                        var $this = $(this);
+                        $this.stop().animate({'width':'115px'},1000);
+                        $('.heading',$this).stop(true,true).fadeIn();
+                        $('.description',$this).stop(true,true).fadeOut(500);
+                        $('.bgDescription',$this).stop(true,true).slideUp(700);
+                    }
+                );
+            });
+        </script>
+
+
+
+
+{% endblock %}

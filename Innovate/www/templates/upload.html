@@ -1,0 +1,45 @@
+{% load staticfiles %}
+<html>
+<head>
+	<title></title>
+</head>
+
+<body>
+	<div class "AlbumForm">
+		<p> Add Album: </p>
+		<form action="" method="post">
+	        <div class = "errors">
+	        
+				{% if form.errors %}<p>Please correct the following fields:</p>{% endif %}
+			</div>
+			<div class="album">
+				<label > Title </label>
+		        {% if form.title.errors %}<p class="error">{{ form.title.errors }}</p>{% endif %}
+		       
+		        <p>{{ form.title }}</p>
+			</div>
+			<div class="album">
+				<label > description </label>
+		        {% if form.description.errors %}<p class="error">{{ form.description.errors }}</p>{% endif %}
+		       
+		        <p>{{ form.description }}</p>
+			</div>
+			<div class="album">
+				<label > event date</label>
+		        {% if form.event_date.errors %}<p class="error">{{ form.event_date.errors }}</p>{% endif %}
+		       
+		        <p>{{ form.event_date }}</p>
+			</div>
+			<div class = "submit">
+			 <input type="submit" value="Submit">
+			</div>
+        </div>
+		</form>
+	</div>
+
+		    
+		
+		
+
+</body>
+</html>

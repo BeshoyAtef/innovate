@@ -1,0 +1,42 @@
+{% extends "base.html"%}
+{% load staticfiles %}
+{% block header %}
+ <script type="text/javascript" src="{% static "js/jquery.min.js" %}" ></script>
+ <script type="text/javascript" src="{% static "js/jquery-1.10.2.min.js" %}" ></script>
+ <script type="text/javascript" src="{% static "js/lightbox-2.6.min.js" %}" ></script>
+ <script type="text/javascript" src="{% static "js/modernizr.custom.js" %}" ></script>
+
+ <link href='http://fonts.googleapis.com/css?family=Jura' rel='stylesheet' type='text/css'>
+ <link href="{% static "css/lightbox.css" %}" rel="stylesheet" media="screen">
+ <link href="{% static "css/screen.css" %}" rel="stylesheet" media="screen">
+ <link href="{% static "css/wedding_pics.css" %}" rel="stylesheet" media="screen">
+
+
+
+
+{% endblock %}
+{% block content %}
+
+<div class = "title" >
+<p> Wedding Pictures</p> </div>
+	<div class="weddingppics">
+   {% for p in picture %}
+
+	  
+		<a href="{{p.picture1.url}}" data-lightbox= "pics">
+     
+		<img src='{{p.picture1.url}}'width = "800" height="400"  alt="blah" >
+			</a> 
+
+		{% endfor %}
+
+
+
+
+</div>
+
+
+
+
+
+{% endblock %}

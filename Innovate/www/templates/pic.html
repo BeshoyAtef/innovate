@@ -1,0 +1,58 @@
+	{% load staticfiles %}
+
+<html>
+<head>
+  <script type="text/javascript" src="{% static "js/jquery-1.9.1.min.js" %}" ></script>
+  <script type="text/javascript" src="{% static "js/jquery.min.js" %}" ></script>
+</head>
+<body>
+
+
+    <div class = "selectAlbum">
+		        {%if selectingAlbum %}
+<p> please select the album you want to add pictures in <p>
+				 <select id = "selectalbum">
+				 	 <option> ALBUMS</option>
+				    {% for a in album %}
+                <option value="{{a.id}}">{{a.title}}</option>
+					         {% endfor %}
+				 </select> 
+				 {%endif%}    
+    </div>
+{%if upload %}
+		<div class = "upload_picture">
+			
+			           <form enctype="multipart/form-data" method="post" action="/pic/">{% csrf_token %}
+
+
+
+						{{ form.as_table }}
+						<input type="submit" value="Submit" />
+
+						</form>
+
+				</div>
+					<img src = '{{pic.picture1.url}}'></img>
+
+
+		
+		</form>
+		<p> if u want same ablum keep uploading otherwise</p>
+    <a href="/picc/">choose another album</a>
+
+		{%endif%}
+		
+
+
+
+
+<script>
+$('#selectalbum').change(function(){
+	window.location.replace("/pic/?albumid="+$(this).val())
+});
+</script>
+             
+</body>
+</html>
+
+<!-- $("#txtEmail").val() -->
