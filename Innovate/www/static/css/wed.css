@@ -1,222 +1,61 @@
-*{
-	margin:0;
-	padding:0;
-}
-body{
-	font-family:Helvetica, sans-serif;
-	font-size:13px;
-	color:#fff;
-	background-color: rgb(68, 2, 2);
-	overflow:hidden;
+.weddingalbums { width: 100%; 
+background-color: white;
+height: 100%;
+border-radius: 1%;
+margin-left: -30px;
 
-}
-h1{
-	margin:20px;
-	font-size:40px;
-	font-family: 'Lobster', cursive;
-}
-.nav{
-	float :right;
-	list-style:none;
-	margin-top: -80px;
-
-	font-family: 'Lobster', cursive;
-
-
-/*margin-right: -4px;*/
-  width:120px;
-
-
-
- }
-
-li {
-
-}
-/*.img ul { margin:0; padding:0; }*/
-.nav li { list-style: none;
-
-
-
- }
-
-.nav li a {
- color: #fff;
- cursor: pointer;
- display:block;                
- text-decoration:none;
- width:100%;
- font-size: 12px;
- font-family: 'Lobster', cursive;
- text-transform: uppercase;
-}
-
-.nav li:hover {
- background:rgb(51,3,3);
- position: relative;
- padding:5px;
- border:2px solid rgb(51,3,3);
- width:100%;
-/*-moz-box-shadow: 0 0 5px 5px rgb(46,1,1);
--webkit-box-shadow: 0 0 5px 5px rgb(46,1,1);
-box-shadow: 0 0 5px 5px rgb(46,1,1);*/
-
-
-border-radius:25px;
 
 }
 
-li ul {
-;
- left: 149px;
- top: 0;
- display: none;
-
-
- }
-
-ul li {
- position: relative;
- }
-
-
-
-li:hover ul { display: block; 
-	text-transform: uppercase;
-
-}
-
-
-/*.zoom1 {
-  -webkit-transition: all .1s ease-in-out;
-          transition: all .1s ease-in-out;
-}
-.zoom1:hover {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
-}*/
-
-
-.nest{
+.weddingalbums img {
+ /*   margin-right: -100px;*/
 	float:left;
+	/*margin-left: 10px;*/
+	border:5px solid #a1a1a1;
+	background:#dddddd;
+	width:200px;
+	height: 300px;
 	position: relative;
-	 cursor: pointer;
- display:block;                
- text-decoration:none;
- width:100%;
- font-size: 12px;
+	margin: 10px;
+
+	 /*border-radius: 50%;*/
 }
 
-.st_overlay{
-	width:100%;
-	height:100%;
-	position:fixed;
-	top:0px;
-	left:0px;
-	background:transparent url(../images/pattern.png) repeat-x bottom left;
-	opacity:0.3;
-}
-.st_main img.st_preview{
-	position:absolute;
-	margin-left:27%;
-	top:0px;
-	width:50%;
+/*.weddingalbums img:hover { 
+  
+  -webkit-transform: rotate(-10deg);
+  -moz-transform: rotate(-10deg);
+  -ms-transform: rotate(-10deg);
+  transform: rotate(-10deg);
+ }*/
 
-
+.title{
+color:white;
+font-family: 'Jura', sans-serif;
 }
-ul.st_navigation{
-	position:absolute;
-	width:100%;
-	top:140px;
-	left:-300px;
-	list-style:none;
-}
-ul.st_navigation li {
-	float:left;
-	clear:both;
-/*	margin-top:350px;*/
-	position:relative;
-	width:100%;
-	margin-top: 340px;
-}
-ul.st_navigation li span.st_link{
-	background-color:black;
-	float:left;
-	position:relative;
-	line-height:50px;
-	padding:0px 20px;
-	-moz-box-shadow:0px 0px 2px #000;
-	-webkit-box-shadow:0px 0px 2px #000;
-	box-shadow:0px 0px 2px #000;
-}
-ul.st_navigation li span.st_arrow_down,
-ul.st_navigation li span.st_arrow_up{
-	position:absolute;
-	margin-left:15px;
-	width:40px;
-	height:50px;
-	cursor:pointer;
-	-moz-box-shadow:0px 0px 2px #000;
-	-webkit-box-shadow:0px 0px 2px #000;
-	box-shadow:0px 0px 2px #000;
-}
-ul.st_navigation li span.st_arrow_down{
-	background:#000 url(../images/icons/down.png) no-repeat center center;
-}
-ul.st_navigation li span.st_arrow_up{
-	background:#000 url(../images/icons/up.png) no-repeat center center;
-	background-color: rgb(68, 2, 2);
-}
-.st_wrapper{
-	display:none;
-	position: absolute;
-    width:100%;
-    height:126px;
-    overflow-y:hidden;
-	top:50px;
-    left:0px;
-}
-.st_thumbs{
-    height:126px;
-    margin: 0;
-    width: 100%;
+.albumtitle{
+	float: left;
+	text-align: bottom;
+	position: relative;
+	margin-left: -18.5%;
+	margin-top: 10%;
+	height: 50px;
+	width: 206px;
+	background-color:grey;
+	 border-radius: 3%;
+	 opacity:0.7;
+	filter:alpha(opacity=5);
+	font-family: 'Jura', sans-serif;
+	color: white;
+	font-style: bold
 
 }
-.st_thumbs img{
-    float:left;
-    margin:3px 3px 0px 0px;
-    cursor:pointer;
-	-moz-box-shadow:1px 1px 5px #000;
-	-webkit-box-shadow:1px 1px 5px #000;
-	box-shadow:1px 1px 5px #000;
-	opacity:0.7;
-	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=70);
-	width:150px;
-}
-.st_loading{
-	position:fixed;
-	top:10px;
-	right:0px;
-	background:#000 url(../images/icons/loader.gif) no-repeat 10px 50%;
-	padding:15px 40px 15px 60px;
-	-moz-box-shadow:0px 0px 2px #000;
-	-webkit-box-shadow:0px 0px 2px #000;
-	box-shadow:0px 0px 2px #000;
-	opacity:0.6;
-	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=60);
-}
-.st_about{
-	display:none;
-	position:absolute;
-	top:50px;
-    left:0px;
-	opacity:0.6;
-	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=60);
-}
-.st_subcontent{
-	background:#000;
-	padding:30px;
-	-moz-box-shadow:0px 0px 10px #000;
-	-webkit-box-shadow:0px 0px 10px #000;
-	box-shadow:0px 0px 10px #000;
-}
+
+
+
+
+
+
+
+
+

@@ -124,6 +124,9 @@ INSTALLED_APPS = (
     'django_admin_bootstrapped',
     'django.contrib.admin',
     'www',
+    'soundcloud',
+    'sorl.thumbnail',
+    'admin_timeline',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )

@@ -1,0 +1,39 @@
+.weddingppics { width: 104%; 
+height: 100%;
+border-radius: 1%;
+margin-left: -30px;
+
+
+}
+
+.weddingppics img {
+   
+	float:left;
+	margin-left: 10px;
+	width:15%;
+	height: 55%;
+	position: relative;
+	margin: 10px;
+	margin-top: -30px;
+	border-radius: 5%;
+}
+
+
+
+.title{
+color:white;
+font-family: 'Jura', sans-serif;
+font-size: 46px;
+margin-top:-10px;
+font-style: bold
+}
+
+
+
+
+
+
+
+
+
+

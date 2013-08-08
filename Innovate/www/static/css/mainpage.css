@@ -1,0 +1,90 @@
+.mid{
+	margin: auto;
+}
+@media (min-width: 1000px) {
+  .rotate{
+        	width: 25em; 
+        	height: 25em;
+        	position: relative;
+        	margin: 0 auto;
+        	z-index: 100px;
+        	border-radius: 100%;
+        	behavior: url(../js/PIE.htc);
+  }
+  .rotate #backimg{
+            width: 25em; 
+            height: 25em;
+  }
+}
+@media (max-width: 999px) {
+  .rotate{
+          width: 15em; 
+          height: 15em;
+          position: relative;
+          margin: 0 auto;
+          z-index: 100px;
+          border-radius: 100%;
+          behavior: url(../js/PIE.htc);
+  }
+  .rotate #backimg{
+            width: 15em; 
+            height: 15em;
+  }
+
+}
+.st_overlay{
+  width:100%;
+  height:100%;
+  position:fixed;
+  top:0px;
+  left:0px;
+  background:transparent url(../images/pattern.png) repeat-x bottom left;
+  opacity:0.2;
+  z-index: 2;
+}
+.st_loading{
+  position:fixed;
+  top:10px;
+  right:0px;
+  background:#000 url(../images/icons/loader.gif) no-repeat 10px 50%;
+  padding:15px 40px 15px 60px;
+  -moz-box-shadow:0px 0px 2px #000;
+  -webkit-box-shadow:0px 0px 2px #000;
+  box-shadow:0px 0px 2px #000;
+  opacity:0.6;
+  filter:progid:DXImageTransform.Microsoft.Alpha(opacity=60);
+}
+.st_loading span {
+font-family: Helvetica, sans-serif;
+font-size: 16px;
+color: #fff;
+}
+
+#radial-center {
+  /* fallback */
+  background-color: rgb(68, 2, 2);
+  /*background-image: url(images/radial_bg.png);*/
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  /* Safari 4-5, Chrome 1-9 */
+  /* Can't specify a percentage size? Laaaaaame. */
+  background: -webkit-gradient(radial, center center, 0, center center, 460, from(rgb(185, 62, 62)), to(rgb(68, 2, 2)));
+
+  /* Safari 5.1+, Chrome 10+ */
+  background: -webkit-radial-gradient(circle, rgb(185, 62, 62), rgb(68, 2, 2));
+
+  /* Firefox 3.6+ */
+  background: -moz-radial-gradient(circle,rgb(185, 62, 62), rgb(68, 2, 2));
+
+  
+  background: -o-radial-gradient(center, ellipse cover, rgb(185, 62, 62) 0%,rgb(185, 62, 62) 44%,rgb(68, 2, 2) 100%); /* Opera 12+ */
+background: -ms-radial-gradient(center, ellipse cover, rgb(185, 62, 62) 0%,rgb(185, 62, 62) 44%,rgb(68, 2, 2) 100%); /* IE10+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+  /* IE 10 */
+  background: -ms-radial-gradient(circle, rgb(185, 62, 62), rgb(68, 2, 2));
+
+
+  /* Opera couldn't do radial gradients, then at some point they started supporting the -webkit- syntax, how it kinda does but it's kinda broken (doesn't do sizing) */
+}
