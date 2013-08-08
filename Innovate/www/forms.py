@@ -39,5 +39,4 @@ class ContactForm(forms.Form):
 	addressline3 = forms.CharField(max_length='50', required=False)
 	email = forms.CharField(max_length='50', required=True)
 
-class PicForm(forms.Form):
-	photo = forms.ImageField()
+

@@ -132,8 +132,8 @@ ul, ol {
 li {
   padding-bottom: 0.8em;
   margin-bottom: 0.8em;
-  border-bottom: 2px solid #515151;
-  line-height: 1.3em;
+/*  border-bottom: 2px solid #515151;
+*/  line-height: 1.3em;
 }
 /* line 60, ../sass/screen.sass */
 li.last-list-item {
