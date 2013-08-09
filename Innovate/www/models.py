@@ -1,4 +1,5 @@
 from django.db import models
+from filer.fields.image import FilerImageField
 from django.utils.timezone import utc
 import datetime
 from datetime import timedelta
@@ -38,9 +39,10 @@ class AboutUs(models.Model):
 
 
 
+
 class video(models.Model):
 	youtube_url = models.CharField(max_length='150')
-	video_cover = models.ImageField(upload_to='media')
+	video_cover = FilerImageField()
 	title = models.CharField(max_length='150')
 	director = models.CharField(max_length='50')
 	producer = models.CharField(max_length='50')
@@ -52,6 +54,8 @@ class video(models.Model):
 		('D', 'Documentaries'),
 	)
 	video_genre = models.CharField(max_length=1, choices=video_choices)
+	def __unicode__(self):
+	    return self.title
 
 class contact(models.Model):
 	email = models.CharField(max_length='100')
@@ -68,6 +72,25 @@ class radio_ad(models.Model):
 	    return self.title
 
 
+
+
+from datetime import datetime
+class Gallery(models.Model):
+    title = models.CharField(max_length=255)
+    slug = models.SlugField()
+    pub_date = models.DateTimeField(default=datetime.now)
+  
+    def __unicode__(self):
+        return self.title
+    
+class GalleryImage(models.Model):
+    gallery = models.ForeignKey(Gallery)
+    title = models.CharField(max_length=255)
+    pub_date = models.DateTimeField(default=datetime.now)
+    image = FilerImageField()
+
+    def __unicode__(self):
+            return self.title
 
 
 class sorl_test(models.Model):
