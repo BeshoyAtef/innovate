@@ -8,9 +8,6 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 from filer.models import Image    
 from filer import settings as filer_settings
-from filer_gallery.widgets import UploadWidget
-from filer_gallery.utils import handle_upload, UploadException
-
 
 class GalleryImageAdminInline(admin.TabularInline):
     model = GalleryImage
