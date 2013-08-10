@@ -57,7 +57,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = 'media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -194,14 +194,16 @@ LOGGING = {
 # Parse database configuration from $DATABASE_URL
 try:
   import dj_database_url
-  DATABASES['default'] = dj_database_url.config()
+  # We will assume we are in production if DATABASE_URL is defined
+  if 'DATABASE_URL' in os.environ:
+    DATABASES['default'] = dj_database_url.config()
 
-# Honor the 'X-Forwarded-Proto' header for request.is_secure()
-  SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    # Honor the 'X-Forwarded-Proto' header for request.is_secure()
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-# Allow all host headers
-  ALLOWED_HOSTS = ['*']
+    # Allow all host headers
+    ALLOWED_HOSTS = ['*']
 
-  DEBUG = True
-  TEMPLATE_DEBUG = DEBUG
+    DEBUG = True
+    TEMPLATE_DEBUG = DEBUG
 except ImportError: pass
