@@ -42,7 +42,7 @@ urlpatterns = patterns('',
     url(r'^sorl/', 'www.views.render_app_test'),
     url(r'^base/', 'www.views.render_base'),
     url(r'^radio/', 'www.views.render_radioAds'),
-    url(r'^main/', 'www.views.render_main'),
+    url(r'^', 'www.views.render_main'),
 
 
     # abdos renders-front end related urls
