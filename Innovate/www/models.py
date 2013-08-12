@@ -78,8 +78,8 @@ class contact(models.Model):
 
 class main_page(models.Model):
 	title=models.CharField(max_length='100')
-	logo=FilerImageField()
-	lens=models.ImageField(upload_to='mainpage')
+	logo=FilerImageField(related_name='main_logo')
+	lens=FilerImageField()
 	slogan=models.CharField(max_length='100')
 	is_active=models.BooleanField(default=False)
 	def __unicode__(self):
