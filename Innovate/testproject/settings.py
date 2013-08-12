@@ -1,3 +1,8 @@
+import os
+import sys
+PROJECT_ROOT = os.path.dirname(__file__)
+sys.path.insert(0, os.path.join(PROJECT_ROOT, "apps"))
+
 # Django settings for testproject project.
 
 DEBUG = True
@@ -121,9 +126,12 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
+    'django_admin_bootstrapped',
     'django.contrib.admin',
     'www',
+    'soundcloud',
     'sorl.thumbnail',
+    'admin_timeline',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )

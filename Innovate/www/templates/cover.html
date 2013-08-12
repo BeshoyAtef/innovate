@@ -1,0 +1,47 @@
+{% load staticfiles %}
+
+<html>
+<head>
+  <script type="text/javascript" src="{% static "js/jquery-1.9.1.min.js" %}" ></script>
+  <script type="text/javascript" src="{% static "js/jquery.min.js" %}" ></script>
+</head>
+<body>
+
+ {% if selected_value %} 
+<p>You picked {{selected_value}}.</p> 
+{% else %} 
+<p>Choose the value you want and click <em>Submit</em>.</p> 
+{% endif %}      
+    <div class = "selectAlbum">
+				 <select id = "albumselect"name = "answer">
+				 	 <option > ALBUMS</option>
+				    {% for a in album %}
+                <option value="{{a.id}}" >{{a.title}}</option>
+					         {% endfor %}
+				 </select> 
+				  <input type="submit" value="Submit">
+
+				
+		      
+    </div>
+    </form> 
+     
+<div id = "selectpic">
+              {% for p in pic %}
+             <img  onClick='setalbumcover({{p.id}})' src = '{{p.picture1.url}}'></img>
+          
+                 {% endfor %}
+</div>
+ <script>
+$('#albumselect').change(function(){
+	window.location.replace("/showpic/?albumid="+$(this).val())
+});
+
+function setalbumcover(selectpic){
+window.location.replace("/albumcover/?picture="+selectpic)
+
+};
+</script>
+             
+</body>
+</html>

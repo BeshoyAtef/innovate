@@ -1,0 +1,32 @@
+{% load staticfiles %}
+
+<html>
+<head>
+  <script type="text/javascript" src="{% static "js/jquery-1.9.1.min.js" %}" ></script>
+  <script type="text/javascript" src="{% static "js/jquery.min.js" %}" ></script>
+</head>
+<body>
+
+
+    <div class = "selectAlbum">
+		   
+				 <select id = "selectalbum">
+				 	 <option> ALBUMS</option>
+				    {% for a in album %}
+                <option value="{{a.id}}">{{a.title}}</option>
+					         {% endfor %}
+				 </select> 
+			 
+    </div>
+<script>
+$('#selectalbum').change(function(){
+	window.location.replace("/deletepic/?albumid="+$(this).val())
+});
+
+// function setalbumcover(selectpic){
+// window.location.replace("/albumcover/?picture="+selectpic)
+
+// };
+</script>
+</body>
+</html>

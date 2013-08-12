@@ -1,0 +1,62 @@
+		body {
+		font-family: 'Lato', Calibri, Arial, sans-serif;
+		font-weight: 300;
+		font-size: 15px;
+		color: #333;
+		background: rgb(68, 02, 02);
+		}
+
+		p{
+		color: white;
+		padding-left: 10px;
+		}
+
+		.main{
+		padding-left: 95px;
+		padding-top	: 10px;
+		
+		}
+
+		.og-grid {
+		list-style: none;
+		padding: 20px 0;
+		margin: 0 auto;
+		text-align: center;
+		width: 100%;
+		background-
+		}
+
+		.video_tag{
+		display:none;
+		width: 100%;
+		background-color: rgb(255,255,255); opacity: 0.9;
+		margin-left: -135px !important;
+		margin-top: 150px;
+		overflow: hidden;
+		position: fixed;
+		border-radius: 15px;
+		}
+
+		.promofont{
+		color: white;
+		font-family: 'Leckerli One', cursive;
+		}
+
+		a #close_icon {
+		float: right;padding-right: 24px;padding-top: 7px;
+		}
+
+		.video{
+		padding-left: 750px;margin-top: 10px;margin-bottom: 10px;
+		}
+		
+		label{
+		font-family: "Times New Roman", Times, serif;
+		font-size: 20pt;
+		padding-bottom: 15px;
+		}
+
+		.p_title{
+			opacity :0;
+			margin-top: 5px;
+		}
