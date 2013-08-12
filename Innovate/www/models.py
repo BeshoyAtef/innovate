@@ -36,6 +36,8 @@ class AboutUs(models.Model):
 	title4=models.CharField(max_length=50)
 	description4=models.TextField(max_length='1000')
 	picture4 = models.ImageField(upload_to='media')
+	def __unicode__(self):
+	    return str(self.id)+":"+self.maintitle
 
 
 
@@ -55,7 +57,7 @@ class video(models.Model):
 	)
 	video_genre = models.CharField(max_length=1, choices=video_choices)
 	def __unicode__(self):
-	    return self.title
+	    return str(self.id)+":"+self.title
 
 class contact(models.Model):
 	email = models.CharField(max_length='100')
@@ -64,12 +66,32 @@ class contact(models.Model):
 	address_line3 = models.CharField(max_length='100')
 	skype_name = models.CharField(max_length='50')
 	telephone_number = models.CharField(max_length='100')
+	def __unicode__(self):
+	    return str(self.id)+":"+self.email
+
+
+class main_page(models.Model):
+	title=models.CharField(max_length='100')
+	logo=models.ImageField(upload_to='mainpage')
+	lens=models.ImageField(upload_to='mainpage')
+	slogan=models.CharField(max_length='100')
+	is_active=models.BooleanField(default=False)
+	def __unicode__(self):
+	    return str(self.id)+":"+self.title
+
+class main_page_moviestrip(models.Model):
+	main_page = models.ForeignKey(main_page)
+	image=models.ImageField(upload_to='mainpage/moviestrip')
+	title=models.CharField(max_length='100')
+	def __unicode__(self):
+	    return self.title
 
 class radio_ad(models.Model):
 	title=models.CharField(max_length='500')
 	url = models.TextField(max_length='1000')
 	def __unicode__(self):
 	    return self.title
+
 
 
 

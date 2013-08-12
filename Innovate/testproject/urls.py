@@ -1,7 +1,5 @@
 from django.conf.urls import patterns, include, url
-
 from testproject import settings
-
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -44,6 +42,8 @@ urlpatterns = patterns('',
     url(r'^sorl/', 'www.views.render_app_test'),
     url(r'^base/', 'www.views.render_base'),
     url(r'^radio/', 'www.views.render_radioAds'),
+    url(r'^main/', 'www.views.render_main'),
+
 
     # abdos renders-front end related urls
     url(r'^weddingclips/', 'www.views.show_wedding_videos'),
@@ -61,7 +61,6 @@ urlpatterns = patterns('',
     url(r'^testincrement/', 'www.views.increment_number_of_views'),
 
 )
-
 urlpatterns += patterns('django.views.static',
         (r'media/(?P<path>.*)', 'serve', {'document_root': settings.MEDIA_ROOT}),
     )

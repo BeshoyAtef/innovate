@@ -123,6 +123,12 @@ def view_contact_us(request):
 	return render_to_response('contactus.html', {'contact_obj':contact_obj})
 
 
+#Beshoy Atef-This Method render the Main  for checking Perposes 
+def render_main(request):
+	main_page_obj = main_page.objects.get(pk=1)
+	thumbnails=main_page_moviestrip.objects.filter(main_page=main_page_obj)
+	return render_to_response('index.html',{'main_page':main_page,'thumbnails':thumbnails},context_instance=RequestContext(request))
+
 
 def add_album(request):
 
@@ -307,3 +313,4 @@ def aboutusrendering(request):
 	about=abouts[0]
 	print about
 	return render_to_response('about.html',{'about':about})
+

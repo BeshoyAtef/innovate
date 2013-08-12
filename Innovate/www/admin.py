@@ -29,6 +29,11 @@ class GalleryImageAdmin(admin.ModelAdmin):
 
 
 
+#beshoy mainPage
+admin.site.register(main_page)
+admin.site.register(main_page_moviestrip)
+
+
 admin.site.register(Album)
 admin.site.register(Pictures)
 admin.site.register(AblumCover)
