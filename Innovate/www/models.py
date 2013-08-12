@@ -10,17 +10,23 @@ class Album(models.Model):
 	title = models.CharField(max_length=100)
 	description = models.CharField(max_length=500, null=True)
 	event_date = models.DateField(null=True)
+	def __unicode__(self):
+	    return str(self.id)
 
 
 #table pics defines the pictures regarding one ablum (no limit)
 class Pictures(models.Model):
-    picture1 = models.ImageField(upload_to='media', blank=True)
+    picture1 = FilerImageField()
     album = models.ForeignKey(Album)
+    def __unicode__(self):
+        return str(self.id)
 
 
 class AblumCover(models.Model):
 	picture = models.ForeignKey(Pictures)
 	album = models.ForeignKey(Album)
+	def __unicode__(self):
+	    return str(self.id)
 
 class AboutUs(models.Model):
 	maintitle=models.CharField(max_length=50)
@@ -72,7 +78,7 @@ class contact(models.Model):
 
 class main_page(models.Model):
 	title=models.CharField(max_length='100')
-	logo=models.ImageField(upload_to='mainpage')
+	logo=FilerImageField()
 	lens=models.ImageField(upload_to='mainpage')
 	slogan=models.CharField(max_length='100')
 	is_active=models.BooleanField(default=False)
@@ -101,7 +107,6 @@ class Gallery(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField()
     pub_date = models.DateTimeField(default=datetime.now)
-  
     def __unicode__(self):
         return self.title
     
@@ -110,11 +115,9 @@ class GalleryImage(models.Model):
     title = models.CharField(max_length=255)
     pub_date = models.DateTimeField(default=datetime.now)
     image = FilerImageField()
-
     def __unicode__(self):
             return self.title
-
-
+            
 class sorl_test(models.Model):
 	image=models.ImageField(upload_to='testsorl')
 
