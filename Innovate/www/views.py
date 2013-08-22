@@ -297,8 +297,11 @@ def test(request):
 	# print embed_info['html']
 	return render_to_response('radio.html', {'track_list':track_list},context_instance=RequestContext(request))
 
-def albums_gal(request):
-	album = AblumCover.objects.all()
+def albums_gal(request,category):
+	print category
+	# print "i am here"
+	albums=Ablum.objects.filter(category='W')
+	album = AblumCover
 	return render_to_response('wedding.html', {'album':album})
 
 def weddinggallery(request):

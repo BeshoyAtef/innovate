@@ -11,6 +11,13 @@ class Album(models.Model):
 	title = models.CharField(max_length=100)
 	description = models.TextField(max_length='1000', null=True)
 	event_date = models.DateField(null=True)
+	category_choices = (
+		('W', 'Wedding'),
+		('E', 'Event'),
+		('A', 'Ads'),
+	)
+	category = models.CharField(max_length=1, choices=category_choices)
+
 	def __unicode__(self):
 	    return str(self.id)
 
