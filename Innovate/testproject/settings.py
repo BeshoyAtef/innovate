@@ -133,24 +133,50 @@ from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.core.context_processors.request',
 )
-INSTALLED_APPS = (
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.sites',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
+THUMBNAIL_ALIASES = {
+    '': {
+        'xxxlarge': {'size': (1300, 1300)},
+    },
+   '': {
+        'xxlarge': {'size': (1000, 1000)},
+    },
+   '': {
+        'xlarge': {'size': (700, 700)},
+    },
+   '': {
+        'large': {'size': (300, 300)},
+    },
+   '': {
+        'medium': {'size': (200, 200)},
+    },
+   '': {
+        'small': {'size': (140, 140)},
+    },
+   '': {
+        'xsmall': {'size': (100, 100)},
+    },
+}
 
-    'suit',
-    'django.contrib.admin',
-    'www',
-    'soundcloud',
-    'sorl.thumbnail',
-    'admin_timeline',
-    'filer',
-    'mptt',
-    'easy_thumbnails',
+INSTALLED_APPS = (
+      'django.contrib.auth',
+      'django.contrib.contenttypes',
+      'django.contrib.sessions',
+      'django.contrib.sites',
+      'django.contrib.messages',
+      'django.contrib.staticfiles',
+      # Uncomment the next line to enable the admin:
+
+      'suit',
+      'django.contrib.admin',
+      'www',
+      'soundcloud',
+      'sorl.thumbnail',
+      'admin_timeline',
+      'filer',
+      'mptt',
+      'easy_thumbnails',
+
+
 
 
     # Uncomment the next line to enable admin documentation:
