@@ -35,8 +35,8 @@ admin.site.register(main_page_moviestrip)
 
 
 admin.site.register(Album)
-admin.site.register(AblumCover)
-admin.site.register(Pictures)
+# admin.site.register(AblumCover)
+admin.site.register(Picture)
 
 admin.site.register(AboutUs)
 admin.site.register(video)

@@ -30,16 +30,33 @@
 				{% for p in picture %}
 				<li>
 					<div data-alt="img03" data-description="<h3>Sky high</h3>" data-max-width="1800" data-max-height="1350">
-						<div data-src="{{p.picture1.url}}"  data-min-width="1300"/></div>
-						<div data-src="{{p.picture1.url}}"  data-min-width="1000"></div>
-						<div data-src="{{p.picture1.url}}"  data-min-width="700"></div>
-						<div data-src="{{p.picture1.url}}"  data-min-width="300"></div>
-						<div data-src="{{p.picture1.url}}"  data-min-width="200"></div>
-						<div data-src="{{p.picture1.url}}"  data-min-width="140"></div>
-						<div data-src="{{p.picture1.url}}" >
+						{% thumbnail p.picture1.file "1300" as im %}
+						    <div data-src="{{im.url}}"  data-min-width="1300"></div>
+						{% endthumbnail %}
+						{% thumbnail p.picture1.file "700" as im %}
+						    <div data-src="{{im.url}}"  data-min-width="1000"></div>
+						{% endthumbnail %}
+						{% thumbnail p.picture1.file "700" as im %}
+						    <div data-src="{{im.url}}"  data-min-width="700"></div>
+						{% endthumbnail %}
+						{% thumbnail p.picture1.file "300" as im %}
+						    <div data-src="{{im.url}}"  data-min-width="300"></div>
+						{% endthumbnail %}
+						<div data-src="{{im.url}}"  data-min-width="300"></div>	
+						{% thumbnail p.picture1.file "200" as im %}
+						    <div data-src="{{im.url}}"  data-min-width="200"></div>
+						{% endthumbnail %}
+						{% thumbnail p.picture1.file "140" as im %}
+						    <div data-src="{{im.url}}"  data-min-width="140"></div>
+						{% endthumbnail %}
+						{% thumbnail p.picture1.file "140" as im %}
+						    <div data-src="{{im.url}}">
+						{% endthumbnail %}
 						</div>
 						<noscript>
-							<img src="{% static "ga/images/xsmall/3.jpg" %}"  alt="img03"/>
+							{% thumbnail p.picture1.file "140" as im %}
+							    <img src="{{im.url}}"  alt="img03"/>
+							{% endthumbnail %}
 						</noscript>
 					</div>
 				</li>

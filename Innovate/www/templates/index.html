@@ -74,7 +74,7 @@ font-family: 'Jura', sans-serif;
         <div class="st_wrapper st_thumbs_wrapper">
             <div class="st_thumbs">
             	{% for thumb in thumbnails %}
-	            	{% thumbnail thumb.image "200x100" as im %}
+	            	{% thumbnail thumb.image.file "200x100" as im %}
 	            	    <img src="{{ im.url }}" alt="{{ thumb.image.url }}">
 	            	{% endthumbnail %}
 				{% endfor %}
