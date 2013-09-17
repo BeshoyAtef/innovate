@@ -127,6 +127,7 @@ def view_contact_us(request):
 def render_main(request):
 	main_page_obj = main_page.objects.get(pk=1)
 	thumbnails=main_page_moviestrip.objects.filter(main_page=main_page_obj)
+	print thumbnails
 	return render_to_response('index.html',{'main_page':main_page,'thumbnails':thumbnails},context_instance=RequestContext(request))
 
 
@@ -280,7 +281,16 @@ def render_app_test(request):
 
 #Beshoy Atef-This Method render the Main Page for checking Perposes 
 def render_radioAds(request):
-	return render_to_response('radio.html',context_instance=RequestContext(request))
+	radio_ads = radio_ad.objects.all()
+	track_list = list()
+	client = soundcloud.Client(client_id='dc93bd6c42e7e5d82a7718f2c8abf695')
+	for ad in radio_ads:
+		track = client.get('/resolve', url=ad.url)
+		track_list.append(track.id)
+	# print the html for the player widge`t
+	# print embed_info
+	# print embed_info['html']
+	return render_to_response('radio.html', {'track_list':track_list},context_instance=RequestContext(request))
 
 def test(request):
 	link = 'http://www.youtube.com/watch?v=8t7fLDtgtuE'
@@ -291,22 +301,39 @@ def test(request):
 	for ad in radio_ads:
 		track = client.get('/resolve', url=ad.url)
 		track_list.append(track.id)
-	# print the html for the player widget
+	# print the html for the player widge`t
 	# print embed_info
 	# print embed_info['html']
 	return render_to_response('radio.html', {'track_list':track_list},context_instance=RequestContext(request))
 
-def albums_gal(request):
-	album = AblumCover.objects.all()
-	return render_to_response('wedding.html', {'album':album})
+def albums_gal(request,category):
+	print category
+	albums=Album.objects.filter(category=category)
+	#l = [Student_profile_pic.objects.filter(i) for i in q] """this will result in list of query sets"""
+	print albums
+	# album = [AblumCover.objects.filter(album=i) for i in albums] 
+	return render_to_response('wedding.html', {'album':albums,'category':category})
+def albums_gal(request,category):
+	print category
+	albums=Album.objects.filter(category=category)
+	#l = [Student_profile_pic.objects.filter(i) for i in q] """this will result in list of query sets"""
+	print albums
+	# album = [AblumCover.objects.filter(album=i) for i in albums] 
+	return render_to_response('wedding.html', {'album':albums,'category':category})
 
 def weddinggallery(request):
-	print "imhere"
+	# print "imhere"
 	albumid = request.GET['album']
-	print albumid
-	picture = Pictures.objects.filter(album_id=albumid)
-	print picture
+	# print albumid
+	picture = Picture.objects.filter(album_id=albumid)
+	print "MNZ", dir(picture[0].picture1)
+	# test=picture[0]
+	# print test.picture1
+	# test_url = test.picture1['1300x1300'].url
+	# print test_url
 	return render_to_response('gallery.html',{'picture':picture})
+	# return render_to_response('gallery.html')
+
 
 def aboutusrendering(request):
 	abouts = AboutUs.objects.all()

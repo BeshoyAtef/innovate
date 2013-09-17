@@ -32,7 +32,7 @@ urlpatterns = patterns('',
     url(r'^albumshow/', 'www.views.album_pic'),
     url(r'^deletepic/', 'www.views.render_pic'),
     url(r'^deleted/', 'www.views.delete_pic'),
-    url(r'^wedding/', 'www.views.albums_gal'),
+    # url(r'^wedding/', 'www.views.albums_gal'),
     url(r'^gallery/', 'www.views.weddinggallery'),
     url(r'^about/', 'www.views.aboutusrendering'),
 
@@ -42,7 +42,7 @@ urlpatterns = patterns('',
     url(r'^sorl/', 'www.views.render_app_test'),
     url(r'^base/', 'www.views.render_base'),
     url(r'^radio/', 'www.views.render_radioAds'),
-    url(r'^', 'www.views.render_main'),
+    url(r'^$', 'www.views.render_main',name='home'),
 
 
     # abdos renders-front end related urls
@@ -59,6 +59,9 @@ urlpatterns = patterns('',
     url(r'^add/video/', 'www.views.add_video'),
     url(r'^add/contact/', 'www.views.add_contact'),
     url(r'^testincrement/', 'www.views.increment_number_of_views'),
+    # url(r'^p/(?P<num>\d+)/$', 'blog.views.page'),
+    url(r'^p/(?P<category>\w+)/$', 'www.views.albums_gal'),
+
 
 )
 urlpatterns += patterns('django.views.static',

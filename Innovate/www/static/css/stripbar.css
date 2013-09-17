@@ -22,14 +22,14 @@ h1{
 	left:0px;
 	background:transparent url(../images/pattern.png) repeat-x bottom left;
 	opacity:0.2;
-	z-index: 2;
+	z-index: -2;
 }
 .st_main img.st_preview{
 	position: absolute;
 	margin: auto;
 	left: 0px;
 	top: 0px;
-	width: 100%;
+	width: 101%;
 	z-index: 3;
 	margin: auto;
 	display: block;
