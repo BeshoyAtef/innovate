@@ -1,5 +1,6 @@
 {% extends "base.html"%}
 {% load staticfiles %}
+{% load thumbnail %}
 {% block header %}
  <script type="text/javascript" src="{% static "js/jquery.min.js" %}" ></script>
  <link href='http://fonts.googleapis.com/css?family=Jura' rel='stylesheet' type='text/css'>
@@ -74,16 +75,32 @@
                 margin-top:-15px;
             }
             ul.accordion li.bg1{
-                background-image:url({{about.picture4.url}});
+                background-image:url(                       
+                    {% thumbnail about.picture4.file "1000" as im %}
+                           {{im.url}}
+                    {% endthumbnail %}
+                        );
             }
             ul.accordion li.bg2{
-                background-image:url({{about.picture3.url}});
+                background-image:url(
+                    {% thumbnail about.picture3.file "1000" as im %}
+                           {{im.url}}
+                    {% endthumbnail %}
+                    );
             }
             ul.accordion li.bg3{
-                background-image:url({{about.picture2.url}});
+                background-image:url(
+                    {% thumbnail about.picture2.file "1000" as im %}
+                           {{im.url}}
+                    {% endthumbnail %}
+                    );
             }
             ul.accordion li.bg4{
-                background-image:url({{about.picture1.url}});
+                background-image:url(
+                    {% thumbnail about.picture1.file "1100" as im %}
+                           {{im.url}}
+                    {% endthumbnail %}
+                    );
             }
         </style>
 

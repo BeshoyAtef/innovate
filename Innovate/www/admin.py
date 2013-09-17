@@ -35,8 +35,8 @@ admin.site.register(main_page_moviestrip)
 
 
 admin.site.register(Album)
-admin.site.register(AblumCover)
-admin.site.register(Pictures)
+# admin.site.register(AblumCover)
+admin.site.register(Picture)
 
 admin.site.register(AboutUs)
 admin.site.register(video)
@@ -44,4 +44,4 @@ admin.site.register(contact)
 admin.site.register(radio_ad)    
 # admin.site.register(Gallery, GalleryAdmin)
 # admin.site.register(GalleryImage, GalleryImageAdmin)
-# admin.site.register(sorl_test)
+admin.site.register(sorl_test)

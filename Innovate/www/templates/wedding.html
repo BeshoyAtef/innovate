@@ -1,44 +1,55 @@
 {% extends "base.html"%}
+{% load thumbnail %}
 {% load staticfiles %}
 {% block header %}
-  <link href="{% static "css/wed.css" %}" rel="stylesheet" media="screen">
-  <script type="text/javascript" src="{% static "js/jquery.min.js" %}" ></script>
- <link href='http://fonts.googleapis.com/css?family=Jura' rel='stylesheet' type='text/css'>
+<link href="{% static "css/wed.css" %}" rel="stylesheet" media="screen">
+<script type="text/javascript" src="{% static "js/jquery.min.js" %}" >
+</script>
+<link href='http://fonts.googleapis.com/css?family=Jura' rel='stylesheet' type='text/css'>
 {% endblock %}
 {% block content %}
 
 <div class = "title" >
-<h1> Wedding Albums </h1> </div>
-	<div class="weddingalbums" id = "picture">
-   {% for a in album %}
-
-	  
-		<a href="/gallery/?album={{a.album.id}}">
-        <div class "myimage">
-		<img src='{{a.picture.picture1.url}}' width="150" height="600" alt="blah " onClick='gotogall({{a.album.id}})'>
-		<div class = "albumtitle">
-		<p>{{a.album.title}}</p>
-		
-         </div>
-	</a> 
-
-		{% endfor %}
-
-
-
-
+  <h1>
+  	{%if category == "W" %}
+    Wedding Albums 
+    {% elif category == "E" %}
+	Events Albums
+    {% elif category == "A" %}
+    Advertising Albums
+    {% endif %}
+  </h1>
+  
 </div>
-
- <script>
-
-function gotogall(picture){
-window.location.replace('/gallery/?album='+picture);
-
-
-
-
-};
-</script>
-             
-
-{% endblock %}
+<div class="weddingalbums" id = "picture">
+  {% for a in album %}
+  <a href="/gallery/?album={{a.id}}">
+    <div class "myimage">
+      {% thumbnail a.album_cover.picture1.file "400" as im %}
+      <img src="{{ im.url }}" alt="{{ a.album_cover.picture1.url }}" onClick='gotogall({{a.id}})'>
+      {% endthumbnail %}
+      </div>
+          <div class = "albumtitle">
+            <p>
+              <strong>
+                {{a.title}}
+              </strong>
+            </p>
+            
+          </div>
+          </a>
+          
+          
+          {% endfor %}
+          
+          
+  </div>
+  <script>
+	function gotogall(picture){
+      window.location.replace('/gallery/?album='+picture);
+	}
+   ;
+  </script>
+  
+  
+  {% endblock %}
