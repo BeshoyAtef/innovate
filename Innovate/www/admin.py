@@ -9,23 +9,23 @@ from django.http import HttpResponse
 from filer.models import Image    
 from filer import settings as filer_settings
 
-class GalleryImageAdminInline(admin.TabularInline):
-    model = GalleryImage
+# class GalleryImageAdminInline(admin.TabularInline):
+#     model = GalleryImage
 
 
-class GalleryAdmin(admin.ModelAdmin):
-    inlines = (GalleryImageAdminInline, )
-    list_display = ('__unicode__', 'title')
-    list_editable = ('title',) 
-    prepopulated_fields = {'slug': ('title',) }
+# class GalleryAdmin(admin.ModelAdmin):
+#     inlines = (GalleryImageAdminInline, )
+#     list_display = ('__unicode__', 'title')
+#     list_editable = ('title',) 
+#     prepopulated_fields = {'slug': ('title',) }
     
 
 
             
-class GalleryImageAdmin(admin.ModelAdmin):
-    list_display = ('__unicode__','gallery', 'title', 'image')
-    list_editable = ('title', 'image')
-    list_filter = ('gallery',)
+# class GalleryImageAdmin(admin.ModelAdmin):
+#     list_display = ('__unicode__','gallery', 'title', 'image')
+#     list_editable = ('title', 'image')
+#     list_filter = ('gallery',)
 
 
 
@@ -35,10 +35,10 @@ admin.site.register(main_page_moviestrip)
 
 
 admin.site.register(Album)
-# admin.site.register(AblumCover)
-admin.site.register(Picture)
+admin.site.register(AblumCover)
+# admin.site.register(Picture)
 
-admin.site.register(AboutUs)
+admin.site.register(About)
 admin.site.register(video)
 admin.site.register(contact)
 admin.site.register(radio_ad)    

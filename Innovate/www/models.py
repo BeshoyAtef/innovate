@@ -4,41 +4,38 @@ from django.utils.timezone import utc
 import datetime
 from datetime import timedelta
 from easy_thumbnails.fields import ThumbnailerImageField
+from filer.models import *
 # Create your models here.
 
 
 #album table defines elements of the ablum with the title,descr and date of the pictures regarding that album
 class Album(models.Model):
-	title = models.CharField(max_length=100)
-	description = models.TextField(max_length='1000', null=True)
-	event_date = models.DateField(null=True)
+	folder=models.ForeignKey(Folder)
 	category_choices = (
 		('W', 'Wedding'),
 		('E', 'Event'),
 		('A', 'Ads'),
 	)
 	category = models.CharField(max_length=1, choices=category_choices)
-	album_cover = models.ForeignKey("Picture", null=True,blank=True,related_name="cover")
-
-
 	def __unicode__(self):
 	    return str(self.id)
 
-#table pics defines the pictures regarding one ablum (no limit)
-class Picture(models.Model):
-    picture1 = FilerImageField()
-    album = models.ForeignKey(Album)
-    # large_thumb = Thumbnailer(upload_to="thumb",blank=True)
-    def __unicode__(self):
-        return str(self.id)
+# #table pics defines the pictures regarding one ablum (no limit)
+# class Picture(models.Model):
+#     picture1 = FilerImageField()
+#     album = models.ForeignKey(Album)
+#     # large_thumb = Thumbnailer(upload_to="thumb",blank=True)
+#     def __unicode__(self):
+#         return str(self.id)
 
 
-# class AblumCover(models.Model):
-# 	album = models.ForeignKey(Album)
-# 	def __unicode__(self):
-# 	    return str(self.id)
+class AblumCover(models.Model):
+	album = models.ForeignKey(Album)
+	pic=FilerImageField()
+	def __unicode__(self):
+	    return str(self.id)
 
-class AboutUs(models.Model):
+class About(models.Model):
 	maintitle=models.CharField(max_length=50)
 	title1=models.CharField(max_length=50)
 	description1=models.TextField(max_length='1000')
@@ -105,26 +102,6 @@ class radio_ad(models.Model):
 	url = models.TextField(max_length='1000')
 	def __unicode__(self):
 	    return self.title
-
-
-
-
-
-from datetime import datetime
-class Gallery(models.Model):
-    title = models.CharField(max_length=255)
-    slug = models.SlugField()
-    pub_date = models.DateTimeField(default=datetime.now)
-    def __unicode__(self):
-        return self.title
-    
-class GalleryImage(models.Model):
-    gallery = models.ForeignKey(Gallery)
-    title = models.CharField(max_length=255)
-    pub_date = models.DateTimeField(default=datetime.now)
-    image = FilerImageField()
-    def __unicode__(self):
-            return self.title
             
 class sorl_test(models.Model):
 	image=FilerImageField()

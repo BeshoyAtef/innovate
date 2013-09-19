@@ -6,6 +6,7 @@ from www.forms import *
 from www.models import*
 from django.core.mail import send_mail, BadHeaderError
 import soundcloud
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 #Abdelrahman Maged-This view will redirect the user to the deletevideo.html page.
@@ -308,35 +309,38 @@ def test(request):
 
 def albums_gal(request,category):
 	print category
-	albums=Album.objects.filter(category=category)
-	#l = [Student_profile_pic.objects.filter(i) for i in q] """this will result in list of query sets"""
-	print albums
-	# album = [AblumCover.objects.filter(album=i) for i in albums] 
-	return render_to_response('wedding.html', {'album':albums,'category':category})
-def albums_gal(request,category):
-	print category
-	albums=Album.objects.filter(category=category)
+	albums=AblumCover.objects.filter(album=Album.objects.filter(category=category))
 	#l = [Student_profile_pic.objects.filter(i) for i in q] """this will result in list of query sets"""
 	print albums
 	# album = [AblumCover.objects.filter(album=i) for i in albums] 
 	return render_to_response('wedding.html', {'album':albums,'category':category})
 
-def weddinggallery(request):
-	# print "imhere"
+from endless_pagination.decorators import page_template
+@page_template('pics_gamma_template.html')  # just add this decorator
+def weddinggallery(request, template='gallery.html', extra_context=None):
 	albumid = request.GET['album']
-	# print albumid
-	picture = Picture.objects.filter(album_id=albumid)
-	print "MNZ", dir(picture[0].picture1)
-	# test=picture[0]
-	# print test.picture1
-	# test_url = test.picture1['1300x1300'].url
-	# print test_url
-	return render_to_response('gallery.html',{'picture':picture})
-	# return render_to_response('gallery.html')
+	album = Album.objects.get(id=albumid)
+	picture=album.folder.files
+	# paginator = Paginator(pictures, 10) # Show 25 contacts per page
+	# page = request.GET.get('page')
+	# try:
+	#     picture = paginator.page(page)
+	# except PageNotAnInteger:
+	#     # If page is not an integer, deliver first page.
+	#     picture = paginator.page(1)
+	# except EmptyPage:
+	#     # If page is out of range (e.g. 9999), deliver last page of results.
+	#     picture = paginator.page(paginator.num_pages)
+	context = {'picture':picture}
+	if extra_context is not None:
+	    context.update(extra_context)
+	return render_to_response(template,context,context_instance=RequestContext(request))
+
+
 
 
 def aboutusrendering(request):
-	abouts = AboutUs.objects.all()
+	abouts = About.objects.all()
 	about=abouts[0]
 	print about
 	return render_to_response('about.html',{'about':about})

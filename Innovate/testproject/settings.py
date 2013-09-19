@@ -129,6 +129,7 @@ THUMBNAIL_PROCESSORS = (
     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
     'easy_thumbnails.processors.filters',
 )
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 
 TEMPLATE_CONTEXT_PROCESSORS = TCP + (
@@ -176,6 +177,7 @@ INSTALLED_APPS = (
       'filer',
       'mptt',
       'easy_thumbnails',
+      'endless_pagination',
 
 
 
@@ -235,3 +237,5 @@ try:
     DEBUG = True
     TEMPLATE_DEBUG = DEBUG
 except ImportError: pass
+
+ENDLESS_PAGINATION_PER_PAGE = 30
