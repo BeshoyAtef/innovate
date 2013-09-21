@@ -73,12 +73,9 @@ font-family: 'Jura', sans-serif;
         <span class="st_link"><span class="st_arrow_down"></span></span>
         <div class="st_wrapper st_thumbs_wrapper">
             <div class="st_thumbs">
-            	{% for thumb in thumbnails %}
-            	.
-	            	{% thumbnail thumb.image.file "200x100" as im %}
-	            	    <img src="{{ im.url }}" alt="{{ thumb.image.url }}">
-	            	{% endthumbnail %}
-				{% endfor %}
+              {% for thumb in thumbnails %}
+                <img src="{% thumbnail thumb.image.file 200x100 %}" alt="{{ thumb.image.url }}">
+              {% endfor %}
             </div>
         </div>
     </li>
