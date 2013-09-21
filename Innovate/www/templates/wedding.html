@@ -25,7 +25,7 @@
   {% for a in album %}
   <a href="/gallery/?album={{a.id}}">
     <div class "myimage">
-      <img src="{% thumbnail a.pic.file 400x0 %}" alt="{{ a.album_cover.picture1.url }}" onClick='gotogall({{a.id}})'>
+      <img src="{% thumbnail a.pic.file 400x400 %}" alt="{{ a.album_cover.picture1.url }}" onClick='gotogall({{a.id}})'>
       </div>
           <div class = "albumtitle">
             <p>
