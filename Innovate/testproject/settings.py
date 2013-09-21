@@ -129,8 +129,6 @@ TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.core.context_processors.request',
 )
 
-THUMBNAIL_SUBDIR = 'thumbnails'
-
 THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.colorspace',
     'easy_thumbnails.processors.autocrop',
@@ -138,30 +136,6 @@ THUMBNAIL_PROCESSORS = (
     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
     'easy_thumbnails.processors.filters',
 )
-
-THUMBNAIL_ALIASES = {
-    '': {
-        'xxxlarge': {'size': (1300, 1300)},
-    },
-   '': {
-        'xxlarge': {'size': (1000, 1000)},
-    },
-   '': {
-        'xlarge': {'size': (700, 700)},
-    },
-   '': {
-        'large': {'size': (300, 300)},
-    },
-   '': {
-        'medium': {'size': (200, 200)},
-    },
-   '': {
-        'small': {'size': (140, 140)},
-    },
-   '': {
-        'xsmall': {'size': (100, 100)},
-    },
-}
 
 INSTALLED_APPS = (
     'django.contrib.auth',
