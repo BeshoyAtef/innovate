@@ -122,6 +122,15 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 )
 
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
+
+TEMPLATE_CONTEXT_PROCESSORS = TCP + (
+    'django.core.context_processors.request',
+)
+
+THUMBNAIL_SUBDIR = 'thumbnails'
+
 THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.colorspace',
     'easy_thumbnails.processors.autocrop',
@@ -129,12 +138,7 @@ THUMBNAIL_PROCESSORS = (
     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
     'easy_thumbnails.processors.filters',
 )
-from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
-from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 
-TEMPLATE_CONTEXT_PROCESSORS = TCP + (
-    'django.core.context_processors.request',
-)
 THUMBNAIL_ALIASES = {
     '': {
         'xxxlarge': {'size': (1300, 1300)},
@@ -160,38 +164,33 @@ THUMBNAIL_ALIASES = {
 }
 
 INSTALLED_APPS = (
-      'django.contrib.auth',
-      'django.contrib.contenttypes',
-      'django.contrib.sessions',
-      'django.contrib.sites',
-      'django.contrib.messages',
-      'django.contrib.staticfiles',
-      # Uncomment the next line to enable the admin:
-      # 'eragate',
-      'suit',
-      'django.contrib.admin',
-      'www',
-      'soundcloud',
-      'sorl.thumbnail',
-      'admin_timeline',
-      'filer',
-      'mptt',
-      'easy_thumbnails',
-      'endless_pagination',
-
-
-
-
-
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.sites',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    # Uncomment the next line to enable the admin:
+    'suit',
+    'django.contrib.admin',
+    'www',
+    'soundcloud',
+    'admin_timeline',
+    'filer',
+    'mptt',
+    'easy_thumbnails',
+    'endless_pagination',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_HOST_USER = 'abdelrahman.maged@gmail.com'
 EMAIL_HOST_PASSWORD = 'manno1993'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
@@ -221,21 +220,11 @@ LOGGING = {
     }
 }
 
-# Parse database configuration from $DATABASE_URL
-try:
-  import dj_database_url
-  # We will assume we are in production if DATABASE_URL is defined
-  if 'DATABASE_URL' in os.environ:
-    DATABASES['default'] = dj_database_url.config()
-
-    # Honor the 'X-Forwarded-Proto' header for request.is_secure()
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-    # Allow all host headers
-    ALLOWED_HOSTS = ['*']
-
-    DEBUG = True
-    TEMPLATE_DEBUG = DEBUG
-except ImportError: pass
-
 ENDLESS_PAGINATION_PER_PAGE = 30
+
+############### DO NOT EDIT. KEEP AT END OF FILE #################
+# Import local settings
+# NOTE: this MUST be the last line
+try: from local_settings import *
+except: pass
+##################################################################
