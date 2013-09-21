@@ -1,8 +1,5 @@
 {% extends "base2.html"%}
-{% load thumbnail %}
-{% load staticfiles %}
-{% load endless %}
-
+{% load staticfiles  thumbnail%}
 {% block header %}
 
 <meta charset="UTF-8"/>
@@ -28,46 +25,6 @@
 		<div class="gamma-container gamma-loading" id="gamma-container" style="">
 			<ul class="gamma-gallery ">
 				{% include page_template %}
-	<!-- 			{% paginate picture %}
-								{% for p in picture %}
-								<li>
-									<div data-alt="img03" data-description="<h3>Sky high</h3>" data-max-width="1800" data-max-height="1350">
-										{% thumbnail p.file "1300" as im %}
-										    <div data-src="{{im.url}}"  data-min-width="1300"></div>
-										{% endthumbnail %}
-										{% thumbnail p.file "700" as im %}
-										    <div data-src="{{im.url}}"  data-min-width="1000"></div>
-										{% endthumbnail %}
-										{% thumbnail p.file "700" as im %}
-										    <div data-src="{{im.url}}"  data-min-width="700"></div>
-										{% endthumbnail %}
-										{% thumbnail p.file "300" as im %}
-										    <div data-src="{{im.url}}"  data-min-width="300"></div>
-										{% endthumbnail %}
-										<div data-src="{{im.url}}"  data-min-width="300"></div>	
-										{% thumbnail p.file "200" as im %}
-										    <div data-src="{{im.url}}"  data-min-width="200"></div>
-										{% endthumbnail %}
-										{% thumbnail p.file "140" as im %}
-										    <div data-src="{{im.url}}"  data-min-width="140"></div>
-										{% endthumbnail %}
-										{% thumbnail p.file "140" as im %}
-										    <div data-src="{{im.url}}">
-										{% endthumbnail %}
-										</div>
-										<noscript>
-											{% thumbnail p.file "140" as im %}
-											    <img src="{{im.url}}"  alt="img03"/>
-											{% endthumbnail %}
-										</noscript>
-									</div>
-								</li>
-								{% endfor %} -->
-			</ul>
-			
-
-			<div class="gamma-overlay"></div>
-			<div id="loadmore" class="loadmore">{% show_more %}</div>
 		</div>
 	</div>
 	<!--/main-->

@@ -25,14 +25,12 @@
   {% for a in album %}
   <a href="/gallery/?album={{a.id}}">
     <div class "myimage">
-      {% thumbnail a.pic.file "400" as im %}
-      <img src="{{ im.url }}" alt="{{ a.album_cover.picture1.url }}" onClick='gotogall({{a.id}})'>
-      {% endthumbnail %}
+      <img src="{% thumbnail a.pic.file 400x0 %}" alt="{{ a.album_cover.picture1.url }}" onClick='gotogall({{a.id}})'>
       </div>
           <div class = "albumtitle">
             <p>
               <strong>
-                {{a.title}}
+                {{a.id}}
               </strong>
             </p>
             

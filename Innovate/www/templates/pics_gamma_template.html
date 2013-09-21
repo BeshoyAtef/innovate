@@ -1,37 +1,24 @@
-{% load endless %}
-{% load thumbnail %}
-				{% lazy_paginate picture %}
+{% load thumbnail endless %}
+
+				{% paginate picture %}
 				{% for p in picture %}
 				<li>
 					<div data-alt="img03" data-description="<h3>Sky high</h3>" data-max-width="1800" data-max-height="1350">
-						{% thumbnail p.file "1300" as im %}
-						    <div data-src="{{im.url}}"  data-min-width="1300"></div>
-						{% endthumbnail %}
-						{% thumbnail p.file "700" as im %}
-						    <div data-src="{{im.url}}"  data-min-width="1000"></div>
-						{% endthumbnail %}
-						{% thumbnail p.file "700" as im %}
-						    <div data-src="{{im.url}}"  data-min-width="700"></div>
-						{% endthumbnail %}
-						{% thumbnail p.file "300" as im %}
-						    <div data-src="{{im.url}}"  data-min-width="300"></div>
-						{% endthumbnail %}
-						<div data-src="{{im.url}}"  data-min-width="300"></div>	
-						{% thumbnail p.file "200" as im %}
-						    <div data-src="{{im.url}}"  data-min-width="200"></div>
-						{% endthumbnail %}
-						{% thumbnail p.file "140" as im %}
-						    <div data-src="{{im.url}}"  data-min-width="140"></div>
-						{% endthumbnail %}
-						{% thumbnail p.file "140" as im %}
-						    <div data-src="{{im.url}}">
-						{% endthumbnail %}
+
+						    <div data-src="{% thumbnail p.file 1300x0 %}"  data-min-width="1300"></div>
+						    <div data-src="{% thumbnail p.file 1000x0 %}"  data-min-width="1000"></div>
+						    <div data-src="{% thumbnail p.file 700x0 %}"  data-min-width="700"></div>
+						    <div data-src="{% thumbnail p.file 300x0 %}"  data-min-width="300"></div>
+						    <div data-src="{% thumbnail p.file 200x0 %}"  data-min-width="200"></div>
+						    <div data-src="{% thumbnail p.file 140x0 %}"  data-min-width="140"></div>
+						    <div data-src="{% thumbnail p.file 140x0 %}">
 						</div>
 						<noscript>
-							{% thumbnail p.file "140" as im %}
-							    <img src="{{im.url}}"  alt="img03"/>
-							{% endthumbnail %}
+							    <img src="{% thumbnail p.file 140x0 %}"  alt="img03"/>
 						</noscript>
 					</div>
 				</li>
 				{% endfor %}
+			</ul>
+			<div class="gamma-overlay"></div>
+			<div id="loadmore" class="loadmore">{% show_more %}</div>
