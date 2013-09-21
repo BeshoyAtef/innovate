@@ -1,6 +1,6 @@
 {% extends "base.html"%}
-{% load thumbnail %}
 {% load staticfiles %}
+{% load thumbnail %}
 {% block header %}
 <link href="{% static "css/wed.css" %}" rel="stylesheet" media="screen">
 <script type="text/javascript" src="{% static "js/jquery.min.js" %}" >
@@ -25,7 +25,7 @@
   {% for thumb in album %}
   <a href="/gallery/?album={{a.id}}">
     <div class "myimage">
-      <img src="{% thumbnail thumb.pic.url 400x400 %}" alt="{{ thumb.pic.url }}" onClick='gotogall({{a.id}})'>
+      <img src="{% thumbnail thumb.pic.file.url 400x400 %}" alt="{{ thumb.pic.url }}" onClick='gotogall({{a.id}})'>
       </div>
           <div class = "albumtitle">
             <p>
