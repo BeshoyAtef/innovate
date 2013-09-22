@@ -309,7 +309,9 @@ def test(request):
 
 def albums_gal(request,category):
 	print category
-	albums=AblumCover.objects.filter(album=Album.objects.filter(category=category))
+	album_list = Album.objects.filter(category=category).values('pk').query
+	print album_list
+	albums=AblumCover.objects.filter(album__in=album_list)
 	#l = [Student_profile_pic.objects.filter(i) for i in q] """this will result in list of query sets"""
 	print albums
 	# album = [AblumCover.objects.filter(album=i) for i in albums] 
