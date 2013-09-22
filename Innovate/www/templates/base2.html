@@ -21,10 +21,9 @@ left: 0px;
 height:100px;
 top: 0px;" src="{% static 'img/logo-white.png'%}" >
 </div> -->
-            
-        <div id="st_loading" class="st_loading"><span>Loading...</span></div>
-        <div class="st_overlay"></div>
-
+        {% block overlay %}
+        {% endblock %}
+        
         <div  id="menu_box" class="row" style="margin-left: 0px" >
             <img>
             <img style="

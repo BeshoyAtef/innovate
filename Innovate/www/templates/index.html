@@ -37,6 +37,12 @@
 </style>
 {% endblock %}
 {% block content %}
+
+        {% block overlay %}
+        <div id="st_loading" class="st_loading"><span>Loading...</span></div>
+        <div class="st_overlay"></div>
+        {% endblock %}
+
 		<div id="st_main" class="st_main" style="margin-left: 0px;">
 			<img src="main-page/images/album/1.jpg" alt="" class="st_preview" style="display:none;"/>
 <div id="logo_div2" style="display:none;">
