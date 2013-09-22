@@ -129,6 +129,8 @@ TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.core.context_processors.request',
 )
 
+THUMBNAIL_DEFAULT_OPTIONS = {'crop': True, 'autocrop': True, 'quality': 90}
+
 THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.colorspace',
     'easy_thumbnails.processors.autocrop',
