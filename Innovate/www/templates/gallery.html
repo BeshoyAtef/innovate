@@ -31,8 +31,8 @@
 </div>
     {% block endjs %}
 <script src="{% static "ga/js/jquery.masonry.min.js" %}" ></script>
-<script src="{% static "ga/js/jquery.history.js" %}" ></script>
-<script src="{% static "ga/js/js-url.min.js" %}" ></script>
+{# <script src="{% static "ga/js/jquery.history.js" %}" ></script>
+ #}<script src="{% static "ga/js/js-url.min.js" %}" ></script>
 <script src="{% static "ga/js/jquerypp.custom.js" %}" ></script>
 <script src="{% static "ga/js/gamma.js" %}" ></script>
     {% endblock %}
@@ -114,24 +114,7 @@
 			});
 
 		</script>	
-{% block js %}
-    {{ block.super }}
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="{% static "endless_pagination/js/endless-pagination.js" %}"></script>
-    // <script>
-    //     $.endlessPaginate({
-    //         paginateOnScroll: true,
-    //         paginateOnScrollChunkSize: 5
-    //         ,
-    //         onCompleted: function(context, fragment) {
-    //             console.log('Label:', $(this).text());
-    //             console.log('URL:', context.url);
-    //             console.log('Querystring key:', context.key);
-    //             console.log('Fragment:', fragment);
-    //         }
-    //     });
-    // </script>
-{% endblock %}
+
 {% endblock %}
 
 
