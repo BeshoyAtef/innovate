@@ -23,14 +23,14 @@
 </div>
 <div class="weddingalbums" id = "picture">
   {% for thumb in album %}
-  <a href="/gallery/?album={{a.id}}">
+  <a href="/gallery/?album={{thumb.album.id}}">
     <div class "myimage">
-      <img src="{% thumbnail thumb.pic.file.url 400x400 %}" alt="{{ thumb.pic.url }}" onClick='gotogall({{a.id}})'>
+      <img src="{% thumbnail thumb.pic.file 400x400 %}" alt="{{ thumb.pic.url }}" onClick='gotogall({{thumb.id}})'> 
       </div>
           <div class = "albumtitle">
             <p>
               <strong>
-                {{a.id}}
+                {{thumb.id}}
               </strong>
             </p>
             

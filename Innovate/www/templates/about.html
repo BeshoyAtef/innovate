@@ -75,31 +75,23 @@
                 margin-top:-15px;
             }
             ul.accordion li.bg1{
-                background-image:url(                       
-                    {% thumbnail about.picture4.file "1000" as im %}
-                           {{im.url}}
-                    {% endthumbnail %}
+                background-image:url(      
+                     {% thumbnail about.picture4.file 1000x0 %} 
                         );
             }
             ul.accordion li.bg2{
                 background-image:url(
-                    {% thumbnail about.picture3.file "1000" as im %}
-                           {{im.url}}
-                    {% endthumbnail %}
+{% thumbnail about.picture3.file 1000x0 %} 
                     );
             }
             ul.accordion li.bg3{
                 background-image:url(
-                    {% thumbnail about.picture2.file "1000" as im %}
-                           {{im.url}}
-                    {% endthumbnail %}
+{% thumbnail about.picture2.file 1000x0 %} 
                     );
             }
             ul.accordion li.bg4{
                 background-image:url(
-                    {% thumbnail about.picture1.file "1100" as im %}
-                           {{im.url}}
-                    {% endthumbnail %}
+{% thumbnail about.picture1.file 1000x0 %} 
                     );
             }
         </style>
