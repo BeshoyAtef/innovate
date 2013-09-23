@@ -18,7 +18,7 @@ class Album(models.Model):
 	)
 	category = models.CharField(max_length=1, choices=category_choices)
 	def __unicode__(self):
-	    return str(self.id)+":"+str(self.folder.name))
+	    return str(self.id)+":"+str(self.folder.name)
 
 # #table pics defines the pictures regarding one ablum (no limit)
 # class Picture(models.Model):
