@@ -33,7 +33,7 @@ class AblumCover(models.Model):
 	album = models.ForeignKey(Album)
 	pic=FilerImageField()
 	def __unicode__(self):
-	    return str(self.id)
+	    return str(self.album.id)+":"+str(self.album.folder.name)
 
 class About(models.Model):
 	maintitle=models.CharField(max_length=50)
