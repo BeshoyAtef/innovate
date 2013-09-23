@@ -3,8 +3,8 @@
 }
 @media (min-width: 1000px) {
   .rotate{
-        	width: 20em; 
-        	height: 20em;
+        	 width: 20em; 
+           height: 20em;
         	position: relative;
         	margin: 0 auto;
         	z-index: 100px;
