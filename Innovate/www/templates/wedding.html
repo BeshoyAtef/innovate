@@ -3,6 +3,7 @@
 {% load thumbnail %}
 {% block header %}
 <link href="{% static "css/wed.css" %}" rel="stylesheet" media="screen">
+<script src="{% static "js/modernizr.custom.97074.js" %}"></script>
 <script type="text/javascript" src="{% static "js/jquery.min.js" %}" >
 </script>
 <link href='http://fonts.googleapis.com/css?family=Jura' rel='stylesheet' type='text/css'>
@@ -22,32 +23,23 @@
   
 </div>
 <div class="weddingalbums" id = "picture">
-  {% for thumb in album %}
-  <a href="/gallery/?album={{thumb.album.id}}">
-    <div class "myimage">
-      <img src="{% thumbnail thumb.pic.file 400x400 %}" alt="{{ thumb.pic.url }}" onClick='gotogall({{thumb.id}})'> 
-      </div>
-          <div class = "albumtitle">
-            <p>
-              <strong>
-                {{thumb.id}}
-              </strong>
-            </p>
-            
-          </div>
-          </a>
-          
-          
-          {% endfor %}
-          
-          
+<ul id="da-thumbs" class="da-thumbs">
+{% for thumb in album %}
+          <li>
+            <a href="/gallery/?album={{thumb.album.id}}">
+              <img src="{% thumbnail thumb.pic.file 350x0 %}" alt="{{ thumb.pic.url }}" onClick='gotogall({{thumb.id}})'> 
+              <div><span>{{thumb.album.folder.name}}</span></div>
+            </a>
+          </li>
+  {% endfor %}
+        </ul>
   </div>
-  <script>
-	function gotogall(picture){
-      window.location.replace('/gallery/?album='+picture);
-	}
-   ;
-  </script>
+  <script type="text/javascript" src="{% static "js/jquery.hoverdir.js" %}"></script>  
+<script type="text/javascript">
+  $(function() {
   
-  
+    $(' #da-thumbs > li ').each( function() { $(this).hoverdir(); } );
+
+  });
+</script>
   {% endblock %}

@@ -7,11 +7,12 @@ ul.accordion{
     font-size: 16px;
     font-style: italic;
     line-height: 1.5em;
+    min-width: 55%;
 
 }
 ul.accordion li{
     float:right;
-    width:115px;
+    width:150px;
     height:480px;
     display:block;
     border-right:2px solid #fff;

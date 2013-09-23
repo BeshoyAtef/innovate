@@ -3,8 +3,8 @@
 }
 @media (min-width: 1000px) {
   .rotate{
-        	width: 25em; 
-        	height: 25em;
+        	width: 20em; 
+        	height: 20em;
         	position: relative;
         	margin: 0 auto;
         	z-index: 100px;
@@ -12,14 +12,14 @@
         	behavior: url(../js/PIE.htc);
   }
   .rotate #backimg{
-            width: 25em; 
-            height: 25em;
+            width: 20em; 
+            height: 20em;
   }
 }
 @media (max-width: 999px) {
   .rotate{
-          width: 15em; 
-          height: 15em;
+          width: 10em; 
+          height: 10em;
           position: relative;
           margin: 0 auto;
           z-index: 100px;
@@ -27,8 +27,8 @@
           behavior: url(../js/PIE.htc);
   }
   .rotate #backimg{
-            width: 15em; 
-            height: 15em;
+            width: 10em; 
+            height: 10em;
   }
 
 }

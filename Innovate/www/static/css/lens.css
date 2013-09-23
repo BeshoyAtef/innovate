@@ -9,8 +9,8 @@
         background-size: cover;
         border-radius: 100%;
         cursor: pointer;
-        width: 25em;
-        height: 25em;
+        width: 20em;
+        height: 20em;
         overflow: hidden;
         position: relative;
     /*    left: 20%;
@@ -34,8 +34,8 @@
         background-size: cover;
         border-radius: 100%;
         cursor: pointer;
-        width: 15em;
-        height: 15em;
+        width: 10em;
+        height: 10em;
         overflow: hidden;
         position: relative;
     /*    left: 20%;
