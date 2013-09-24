@@ -27,7 +27,7 @@
 <div class="gallery clearfix da-thumbs container" id="da-thumbs">
 {% for video in list_of_videos %}
 				<li class="item" style="width: 266px;">
-					<a href="{{video.youtube_url}}?width=90%&height=90%?rel=0" rel="prettyPhoto" class="prettyPhoto" title="{{video.title}}"><img src="{% thumbnail video.video_cover.file 250x250 crop %}" width="250" alt="" /><div><span>{{video.title}}</span></div></a>
+					<a href="{{video.youtube_url}}?width=70%&height=70%?rel=0" rel="prettyPhoto" class="prettyPhoto" title="{{video.title}} <br> <strong>The crew: </strong>Director: {{video.director}} ,Cameraman: {{video.photographer}} ,Producer:{{video.producer}}"><img src="{% thumbnail video.video_cover.file 250x250 crop %}" width="250" alt="" /><div><span>{{video.title}}</span></div></a>
 				</li>
 
 {% endfor %}
@@ -35,7 +35,7 @@
 
 <script type="text/javascript">
 			$(document).ready(function(){
-				$(".prettyphoto").prettyPhoto();
+				$(".prettyphoto").prettyPhoto({theme: 'dark_rounded'});
 			});
 </script>
   <script type="text/javascript" src="{% static "js/jquery.hoverdir.js" %}"></script>  
