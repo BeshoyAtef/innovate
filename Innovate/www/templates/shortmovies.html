@@ -27,7 +27,7 @@
 <div class="gallery clearfix da-thumbs container" id="da-thumbs">
 {% for video in list_of_videos %}
 				<li class="item" style="width: 266px;">
-					<a href="{{video.youtube_url}}?rel=0" rel="prettyPhoto" class="prettyPhoto" title="{{video.title}}"><img src="{% thumbnail video.video_cover.file 250x0 crop %}" width="250" alt="" /><div><span>{{video.title}}</span></div></a>
+					<a href="{{video.youtube_url}}?rel=0" rel="prettyPhoto" class="prettyPhoto" title="{{video.title}}"><img src="{% thumbnail video.video_cover.file 250x250 crop %}" width="250" alt="" /><div><span>{{video.title}}</span></div></a>
 				</li>
 
 {% endfor %}
