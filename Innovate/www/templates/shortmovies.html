@@ -2,18 +2,16 @@
 {% load thumbnail %}
 {% load staticfiles %}
 {% block header %}
-   <!-- <link href="{% static "css/bootstrap.css" %}" rel="stylesheet" media="screen"> -->
-  <link href="{% static "css/shortmovies.css" %}" rel="stylesheet" media="screen">
-  <!-- <link href="{% static "css/b.css" %}" rel="stylesheet" media="screen"> -->
+	<link rel="stylesheet" href="{% static "css/prettyPhoto.css" %}" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
+	<link href="{% static "css/wed.css" %}" rel="stylesheet" media="screen">
+	<script src="{% static "js/jquery.prettyPhoto.js" %}" type="text/javascript"  charset="utf-8"></script>
+	<script src="{% static "js/modernizr.custom.97074.js" %}"></script>
+	<link href='http://fonts.googleapis.com/css?family=Jura' rel='stylesheet' type='text/css'>
+
+
+
 {% endblock %}
-<style type="text/css">
-		.promofont{
-		color: white;
-		font-family: 'Leckerli One', cursive;
-		}
-</style>
 {% block content %}
-{% load www_filters %}
 {% if wedding %}
 <div style="text-align:left; color:white;margin-bottom: -12px;"><h1>Wedding Videos</h1></div>
 {% endif %}
@@ -26,86 +24,29 @@
 <div style="text-align:left; color:white;margin-bottom: -12px;"><h1>Promo Videos</h1></div>
 {% endif %}
 
-<div class="row">
-
-<div class="span11">
+<div class="gallery clearfix da-thumbs " id="da-thumbs">
 {% for video in list_of_videos %}
-<div id="video-content{{video.id}}" class="video_tag"><a href="#" id="close_icon" onClick="closeVideoDiv({{video.id}})" style="float: right;padding-right: 24px;padding-top: 7px;">close</a>>
-<div style="float:left;padding-left: 120px;padding-top:25px;">
-					<label style="float:left;">Title: {{video.title}} </label><br>
-					<label style="float:left;">Photogrpaher: {{video.photographer}}</label><br>
-					<label style="float:left;"> Producer: {{video.producer}}</label><br>
-					<label style="float:left;">Director : {{video.director}}</label><br>
-					<label style="float:left;">Number of views: {{video.number_of_views}}</label><br>
-				</div>
-	<div class="video">{{video.youtube_url|youtube_embed_url|safe }}</div></div>
-{% endfor %}
+				<li>
+					<a href="{{video.youtube_url}}?rel=0" rel="prettyPhoto" class="prettyPhoto" title="{{video.title}}"><img src="{% thumbnail video.video_cover.file 250x0 crop %}" width="250" alt="" /><div><span>{{video.title}}</span></div></a>
+				</li>
 
-{% for video in list_of_videos %}
-
-<div id="a{{video.id}}" class="span2">
-	<p id="title{{video.id}}" class="p_title">{{video.title}}</p>
-	<img src="{% thumbnail video.video_cover.file 170x170 crop %}" onmouseout="hidetitle({{video.id}})" onmouseover="displaytitle({{video.id}});" style="border-radius: 15px;max-height:150px;" alt="{{ thumb.image.url }}" >
-</div>
 {% endfor %}
 </div>
-</div>
-	<script type="text/javascript">
-	function displaytitle(id){
-		$('#title'+id).css('opacity','1');
-	}
-	function hidetitle(id){
-		$('#title'+id).css('opacity','0');
-	}
-	var videoDown = false;
-	var position_of_video = -1;
 
-	
-	function showVideoDiv(id){
-		$('#navigation-bar').hide();
-		    if(!videoDown){
-		    	// var b = id-(id%5);
-		    	var a = id;	
-		    	var n = $("#a"+a).offset().top
-		    	$("#video-content"+id).css('padding-left','-95px')
-		    	$("#video-content"+id).slideDown("slow");
-		       		$('html, body').animate({
-		        	scrollTop: n
-		     		}, 3000);
-		        $('#'+id).css('padding-left','0px');
-		        $('#'+id).css('padding-top','0px');
-		    	videoDown = true;
-		    	position_of_video = id;   
-		  		}
-		  	
-		  	else{
-		  		var a = id;	
-		    	var n = $("#a"+a).offset().top
-		  		closeVideoDiv(position_of_video);
-		  		$("#video-content"+id).slideDown("slow");
-		        $('html, body').animate({
-		        	scrollTop: n
-		     	}, 3000);   
-				videoDown = true;
-				position_of_video = id;	
-					}
 
+<script type="text/javascript">
+			$(document).ready(function(){
+				$(".prettyphoto").prettyPhoto({
+					social_tools: '<div class="pp_social"><div class="twitter"><a href="http://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></div><div class="facebook"><iframe src="http://www.facebook.com/plugins/like.php?locale=en_US&href='+location.href+'&amp;layout=button_count&amp;show_faces=true&amp;width=500&amp;action=like&amp;font&amp;colorscheme=light&amp;height=23" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:500px; height:23px;" allowTransparency="true"></iframe></div></div>' /* html or false to disable */});
+			});
+</script>
+  <script type="text/javascript" src="{% static "js/jquery.hoverdir.js" %}"></script>  
+<script type="text/javascript">
+  $(function() {
   
-  			$.ajax({
-    url: '/testincrement/',
-    type: 'POST',
-    data: {
-      video : id,
-    },
-  });
+    $(' #da-thumbs > li ').each( function() { $(this).hoverdir(); } );
 
-  	}
-	function closeVideoDiv(id){
-  		$('#navigation-bar').show();
-  		$("#video-content"+id).slideUp("slow");
-  		videoDown = false;
-  		position_of_video = -1;
-  	}
-	</script>
-	
+  });
+</script>
 {% endblock %}
+

@@ -25,7 +25,7 @@ h1{
 	z-index: -2;
 }
 .st_main img.st_preview{
-	position: absolute;
+	position: fixed;
 	margin: auto;
 	left: 0px;
 	top: 0px;
