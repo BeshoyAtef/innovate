@@ -24,28 +24,31 @@
 <div style="text-align:left; color:white;margin-bottom: -12px;"><h1>Promo Videos</h1></div>
 {% endif %}
 
-<div class="gallery clearfix da-thumbs " id="da-thumbs">
+<div class="gallery clearfix da-thumbs container" id="da-thumbs">
 {% for video in list_of_videos %}
-				<li>
+				<li class="item" style="width: 266px;">
 					<a href="{{video.youtube_url}}?rel=0" rel="prettyPhoto" class="prettyPhoto" title="{{video.title}}"><img src="{% thumbnail video.video_cover.file 250x0 crop %}" width="250" alt="" /><div><span>{{video.title}}</span></div></a>
 				</li>
 
 {% endfor %}
 </div>
 
-
+<script src="{% static "js/masonry.pkgd.min.js" %}"></script>
 <script type="text/javascript">
 			$(document).ready(function(){
-				$(".prettyphoto").prettyPhoto({
-					social_tools: '<div class="pp_social"><div class="twitter"><a href="http://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></div><div class="facebook"><iframe src="http://www.facebook.com/plugins/like.php?locale=en_US&href='+location.href+'&amp;layout=button_count&amp;show_faces=true&amp;width=500&amp;action=like&amp;font&amp;colorscheme=light&amp;height=23" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:500px; height:23px;" allowTransparency="true"></iframe></div></div>' /* html or false to disable */});
+				$(".prettyphoto").prettyPhoto();
 			});
 </script>
   <script type="text/javascript" src="{% static "js/jquery.hoverdir.js" %}"></script>  
 <script type="text/javascript">
   $(function() {
-  
+  	var container = document.querySelector('#container');
+  	var msnry = new Masonry( container, {
+  	  // options
+  	  columnWidth: 266,
+  	  itemSelector: '.item'
+  	});
     $(' #da-thumbs > li ').each( function() { $(this).hoverdir(); } );
-
   });
 </script>
 {% endblock %}
