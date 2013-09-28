@@ -1,18 +1,17 @@
 ul.accordion{
     list-style:none;   
     top:25%;
-    left:15%;
+    right: 25%;
     position: absolute;
     font-family: Cambria, serif;
     font-size: 16px;
     font-style: italic;
     line-height: 1.5em;
-    min-width: 55%;
-
+    width: 1000px;
 }
 ul.accordion li{
     float:right;
-    width:150px;
+    width:120px;
     height:480px;
     display:block;
     border-right:2px solid #fff;

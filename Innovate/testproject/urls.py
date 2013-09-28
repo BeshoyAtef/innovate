@@ -61,6 +61,7 @@ urlpatterns = patterns('',
     url(r'^testincrement/', 'www.views.increment_number_of_views'),
     # url(r'^p/(?P<num>\d+)/$', 'blog.views.page'),
     url(r'^p/(?P<category>\w+)/$', 'www.views.albums_gal'),
+    url(r'^t/(?P<category>\w+)/$', 'www.views.landing_page'),
 
 
 )

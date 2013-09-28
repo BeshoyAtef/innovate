@@ -1,0 +1,410 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% load staticfiles %}
+{% block content %}
+<link href='http://fonts.googleapis.com/css?family=Jura' rel='stylesheet' type='text/css'>
+<style type="text/css">
+/* reset css */
+*, *:before, *:after {
+   -webkit-box-sizing: content-box  ;
+   -moz-box-sizing: content-box  ;
+   box-sizing: content-box ;
+}
+*{max-height:100000px;}
+body{
+   margin: 0;
+   color: #9fa4a4;
+   font: 13px/18px 'jura',Arial, Helvetica, sans-serif;
+   background: #edf3f2 url(../images/bg-page.jpg);
+   -webkit-text-size-adjust:100%;
+   -ms-text-size-adjust: none;
+   min-width: 932px;
+}
+img{
+   border-style: none;
+   vertical-align: top;
+}
+a{
+   text-decoration: none;
+   color: #9fa4a4;
+}
+a:hover{text-decoration: none;}
+a:active{background-color: transparent;}
+input,
+textarea,
+select{
+   font: 100% Arial, Helvetica, sans-serif;
+   vertical-align: middle;
+   color: #9fa4a4;
+}
+form,fieldset{
+   margin: 0;
+   padding: 0;
+   border-style: none;
+}
+input[type="image"]{padding:0;border:none;}
+input[type="text"], input[type="password"], input[type="file"], input[type="submit"], input[type="email"], input[type="email"], textarea{-webkit-appearance:none;}
+input:focus, textarea:focus{outline: none;}
+/* clean fix */
+.area .switchers:after,
+.previews .holder:after,
+.wrap:after,
+.box:after,
+.price-box:after,
+.product-list ul:after,
+.specific:after,
+.feature-selection:after,
+.products>li:after,
+.two-columns:after,
+.social-networks:after,
+.search-holder:after,
+.menu-holder:after,
+.type-buttons:after,
+.menu-box:after,
+.breadcrumbs:after,
+.breadcrumbs .drop-holder:after,
+.popup-menu:after,
+.popup-menu .drop-holder:after,
+.switch-01:after,
+.switch-02:after,
+.radio-form .radio-list:after,
+.check-list li:after,
+.paging:after{
+   content: '';
+   display: block;
+   clear: both;
+}
+/* main wrapper */
+#wrapper{
+   width: 100%;
+   position: relative;
+   overflow: hidden;
+}
+.w1{
+   width: 912px;
+   margin: 0 auto;
+   padding: 79px 10px 0;
+}
+h2{
+   font-size: 89px;
+   line-height: 94px;
+   letter-spacing: -2px;
+   font-weight: normal;
+   margin: 0 0 36px;
+   color: #7e8c8d;
+   text-transform: uppercase;
+   padding-left: 5px;
+}
+.box{
+   height:360px;
+   background: #fff;
+   -webkit-border-radius: 1px;
+   -moz-border-radius: 1px;
+   border-radius: 1px;
+   -webkit-box-shadow: 0 2px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0, 0, 0, 0.2);
+   -moz-box-shadow: 0 2px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0, 0, 0, 0.2);
+   box-shadow: 0 2px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0, 0, 0, 0.2);
+   -webkit-box-sizing: content-box  ;
+   -moz-box-sizing: content-box  ;
+   box-sizing: content-box ;
+}
+.setting a:hover{text-decoration: underline;}
+.btn-profile{background: url(../images/ico-profile.png) no-repeat 0 2px;}
+.btn-photos{background: url(../images/ico-photos.png) no-repeat 0 2px;}
+.setting .btn-follow{
+   color: #fff;
+   letter-spacing: 0;
+   text-transform: none;
+   height: 32px;
+   line-height: 32px;
+   padding: 0 17px;
+   font-weight: bold;
+   float: right;
+   background: #7f8db5;
+   -webkit-border-radius: 2px;
+   -moz-border-radius: 2px;
+   border-radius: 2px;
+   margin: -7px 0 0;
+}
+.setting .btn-follow:hover{text-decoration: none;}
+
+/* preview articles */
+.previews{
+   margin: 0 0 63px;
+   overflow: hidden;
+   -webkit-box-sizing: content-box  ;
+   -moz-box-sizing: content-box  ;
+   box-sizing: content-box ;
+}
+.previews .holder{
+   width: 980px;
+   margin: -63px 0 63px -63px;
+}
+/* preview article */
+.previews .box{
+   float: left;
+   width: 216px;
+   margin: 64px 0 0 64px;
+   padding: 0 20px 57px 24px;
+   position: relative;
+   line-height: 16px;
+}
+.img-preview{
+   position: relative;
+   margin: 0 -20px 46px -25px;
+   -webkit-box-sizing: content-box  ;
+   -moz-box-sizing: content-box  ;
+   box-sizing: content-box ;
+}
+.img-preview a{display: block;}
+.icon,
+.plus,
+.icon:active,
+.plus:active{
+   position: absolute;
+   left: 50%;
+   margin-left: -34px;
+   bottom: -33px;
+   background: rgba(67, 67, 67, .15);
+   width: 52px;
+   height: 52px;
+   padding: 6px;
+   text-indent: -9999px;
+   overflow: hidden;
+   -webkit-border-radius: 32px;
+   -moz-border-radius: 32px;
+   border-radius: 32px;
+}
+.icon span,
+.plus span{
+   display: block;
+   height: 52px;
+   width: 52px;
+   -webkit-border-radius: 26px;
+   -moz-border-radius: 26px;
+   border-radius: 26px;
+}
+.box.doc .icon span{background: #9ab26b url("{% static 'images/back40x.png' %}") no-repeat 6px 6px;}
+.box.video .icon span{background: #227ab4 url("{% static 'images/back40x.png' %}") no-repeat 6px 6px;}
+.box.twit .icon span{background: #77abf5 url("{% static 'images/back40x.png' %}") no-repeat 6px 6px;}
+.box.video .time{
+   position: absolute;
+   font-size: 12px;
+   letter-spacing: 1px;
+   right: 15px;
+   bottom: -25px;
+   color: #d5d7d7;
+}
+.previews h3{
+   font-size: 18px;
+   line-height: 23px;
+   font-weight: normal;
+   letter-spacing: 1px;
+   word-spacing: -1px;
+   color: #7e8c8d;
+   margin: 0 0 12px;
+}
+.box.doc h3{padding-left: 5px;}
+.box.video h3{
+   text-align: center;
+   padding: 10px 0 0;
+}
+.previews h3 a{
+   color: #9ab26b;
+   text-decoration: none;
+}
+.previews .heading{padding: 10px 0 0;}
+.previews p{
+   margin: 0 0 15px;
+   word-spacing: 2px;
+}
+.bottom-panel{
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   border-top: 1px solid #e9e8e8;
+   background: #f5f5f5;
+   width: 100%;
+   height: 20px;
+   padding: 2px 7px 0 7px;
+   box-sizing:border-box;
+   -moz-box-sizing:border-box;
+   -webkit-box-sizing:border-box;
+   overflow: hidden;
+}
+.bottom-panel a{text-decoration: none;}
+.bottom-panel a:hover{text-decoration: underline;}
+.btn-comment{
+   float: left;
+   padding: 1px 0 0 30px;
+   background: url(../images/ico-coments.png) no-repeat;
+}
+.like{
+   font-size: 12px;
+   float: right;
+   padding: 0px 0 0 0px;
+   background: url(../images/ico-like.png) no-repeat 0 2px;
+}
+.wrap{
+   width: 100%;
+   margin: 0 0 64px;
+}
+/* frends area */
+.friends{
+   width: 261px;
+   float: left;
+   padding: 20px 0 0;
+}
+.friends h3,
+.directions-form h3{
+   font-size: 20px;
+   line-height: 24px;
+   font-weight: normal;
+   letter-spacing: 1px;
+   color: #7e8c8d;
+   margin: 0 0 18px;
+   text-align: center;
+}
+.img-list{
+   padding: 0;
+   list-style: none;
+   margin: 0 0 21px;
+   overflow: hidden;
+}
+.img-list li{float: left;}
+/* form of the search friends */
+.friends-form{
+   width: 169px;
+   border: 1px solid #ddd;
+   margin: 0 0 22px 19px;
+   padding: 0 40px 0 13px;
+   position: relative;
+   background: #fff;
+   -webkit-border-radius: 4px;
+   -moz-border-radius: 4px;
+   border-radius: 4px;
+}
+.friends-form input[type="text"]{
+   float: left;
+   font: 13px/16px Arial, Helvetica, sans-serif;
+   word-spacing: 2px;
+   color: #9fa4a4;
+   border: none;
+   background: #fff;
+   width: 162px;
+   padding: 8px 0 9px;
+   margin: 0;
+   height: 16px;
+}
+.friends-form input[type="text"]:focus{outline: none;}
+.friends-form input[type="submit"]{
+   position: absolute;
+   right: 14px;
+   top: 8px;
+   background: url(../images/btn-search.png) no-repeat;
+   border: none;
+   width: 18px;
+   height: 18px;
+   cursor: pointer;
+   padding: 0;
+   margin: 0;
+   line-height: 0;
+   text-indent: -9999px;
+   overflow: hidden;
+}
+.friends-form input[type="submit"]:hover{cursor: pointer;}
+/* get directions map */
+.directions-map{
+   float: right;
+   width: 582px;
+   margin-right: 5px;
+}
+.map-holder{float: left;}
+.icon,
+.plus,
+.icon:active,
+.plus:active{
+   position: absolute;
+   left: 50%;
+   margin-left: -34px;
+   bottom: -33px;
+   background: rgba(67, 67, 67, .15);
+   width: 52px;
+   height: 52px;
+   padding: 6px;
+   text-indent: -9999px;
+   overflow: hidden;
+   -webkit-border-radius: 32px;
+   -moz-border-radius: 32px;
+   border-radius: 32px;
+}
+.icon span,
+.plus span{
+   display: block;
+   height: 52px;
+   width: 52px;
+   -webkit-border-radius: 26px;
+   -moz-border-radius: 26px;
+   border-radius: 26px;
+}
+.header1{
+   font-size: 30px;
+   margin-bottom: 15px;
+   -webkit-border-radius: 3px 3px 0 0;
+   -moz-border-radius: 3px 3px 0 0;
+   -ms-border-radius: 3px 3px 0 0;
+   -o-border-radius: 3px 3px 0 0;
+   overflow: hidden;
+   background: rgba(238, 238, 238, 0.38);
+   display: block;
+   position: relative;
+   border-radius: 3px;
+   -webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,0.33);
+   -moz-box-shadow: 0 1px 3px 0 rgba(0,0,0,0.33);
+   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.33);
+   color:black;
+}
+</style>
+<div class="container" style="margin-top: 35px">
+<div class="header1"><h1>Photography</h1></div>
+         <!-- preview articles -->
+            <div class="previews">
+               <div class="holder">
+                  <!-- preview article -->
+                  <div class="box twit">
+                     <div class="img-preview">
+                        <a href="#"><img src="{% static "images/img-01.jpg" %}" style="width:261;height:159;" alt="image description" /></a>
+                        <a href="#" class="icon"><span>twitter</span></a>
+                     </div>
+                     <h3>Animated musical adventure-comedy film</h3>
+                     <p>Lorem Ipsum is simply dummy of the printing and typesetting</p>
+                     <div class="bottom-panel">
+                        <a href="#" class="like">Innovate Egypt</a>
+                     </div>
+                  </div>
+                  <div class="box doc">
+                     <div class="img-preview">
+                        <a href="#"><img src="{% static "images/img-02.jpg" %}" style="width:261;height:159;" alt="image description" /></a>
+                        <a href="#" class="icon"><span>document</span></a>
+                     </div>
+                     <h3>Adventure-comedy</h3>
+                     <p>Lorem Ipsum is simply dummy of the printing and typesetting  world Lorem Ipsum has been</p>
+                     <div class="bottom-panel">
+                        <a href="#" class="like">Innovate Egypt</a>
+                     </div>
+                  </div>
+                  <div class="box video">
+                     <div class="img-preview">
+                        <a href="#"><img src="{% static "images/img-03.jpg" %}" style="width:261;height:159;" alt="image description" /></a>
+                        <a href="#" class="icon"><span>play</span></a>
+                     </div>
+                     <h3>Adventure-comedy</h3>
+                     <p>Lorem Ipsum is simply dummy of the printing and typesetting  world Lorem Ipsum has been</p>
+                     <div class="bottom-panel">
+                        <a href="#" class="like">Innovate Egypt</a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            </div>
+{% endblock %}

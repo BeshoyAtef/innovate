@@ -317,6 +317,16 @@ def albums_gal(request,category):
 	# album = [AblumCover.objects.filter(album=i) for i in albums] 
 	return render_to_response('wedding.html', {'album':albums,'category':category})
 
+def landing_page(request,category):
+	print category
+	album_list = Album.objects.filter(category=category).values('pk').query
+	print album_list
+	albums=AblumCover.objects.filter(album__in=album_list)
+	#l = [Student_profile_pic.objects.filter(i) for i in q] """this will result in list of query sets"""
+	print albums
+	# album = [AblumCover.objects.filter(album=i) for i in albums] 
+	return render_to_response('landing.html', {'album':albums,'category':category})
+
 from endless_pagination.decorators import page_template
 @page_template('pics_gamma_template.html')  # just add this decorator
 def weddinggallery(request, template='gallery.html', extra_context=None):

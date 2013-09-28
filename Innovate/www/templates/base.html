@@ -1,12 +1,43 @@
 <html>
   <head>
     {% load staticfiles %}
+    <link rel="shortcut icon" href="{% static "images/letter_i_red.ico" %}">
     <link href="{% static "css/mainpage.css" %}" rel="stylesheet" media="screen">
     <link href="{% static "css/menu.css" %}" rel="stylesheet" media="screen">
     <link href="{% static "css/grid.min.css" %}" rel="stylesheet" media="screen">
+    <link href="{% static "css/bootstrap.css" %}" rel="stylesheet" media="screen">
+    <link href="{% static "css/bootstrap.css" %}" rel="stylesheet" media="screen">
     <script type="text/javascript" src="{% static "js/jquery-1.9.1.min.js" %}" >
     </script>
     <link href='http://fonts.googleapis.com/css?family=Jura' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+    a {
+      text-decoration: none;
+      }
+      .navbar-inverse .navbar-nav>li>a {
+      color: #FFF;
+      }
+      .navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus {
+      color: #999;
+      background-color: transparent;
+      }
+      .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+      color: #fff;
+      text-decoration: none;
+      background-color: rgba(129, 13, 13, 0.84);
+      font-weight: 600;
+      }
+      .dropdown-menu>li>a {
+      display: block;
+      padding: 3px 20px;
+      clear: both;
+      font-weight: 400;
+      line-height: 1.428571429;
+      color: #333;
+      white-space: nowrap;
+      font-size: 17;
+      }
+      </style>
     
     {% block header %}
     {% endblock %}
@@ -20,142 +51,62 @@
 
           
           
-          <div  id="menu_box" class="row" style="margin-left: 0px" >
+          <div  id="menu_box" style="margin-left: 0px" >
             <img>
-            <a href="/" style="width:320px;height:80px;position: relative;left: 0px;float: left;white-space: nowrap;height:80px;top: -6px;z-index: 999" title="CLick here to go to Home">
-                <img style="height:80px;" src="{% static 'img/logo-white.png'%}" >
+            <a href="/" style="position: relative;left: 0px;float: left;white-space: nowrap;height:50px;top: -6px;z-index: 999" title="CLick here to go to Home">
+                
               </a>
           
-          <ul id="sdt_menu" class="sdt_menu" style="position: relative;
-margin: auto;
-top: 0px;">
-  <li>
-    <a href="../about">
-      <img src="{% static 'images/menu/2.jpg' %}" alt=""/>
-      <span class="sdt_active">
-      </span>
-      <span class="sdt_wrap">
-        <span class="sdt_link">
-          About us
-        </span>
-        <!--                     
-<span class="sdt_descr">
-Get to know us
-</span>
--->
-                      
-                      </span>
-                  </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <img src="{% static 'images/menu/4.jpg' %}"  alt=""/>
-                      <span class="sdt_active">
-                      </span>
-                      <span class="sdt_wrap">
-                        <span class="sdt_link">
-                          Advertising
-                          </span>
-                          <!--                     
-<span class="sdt_descr">
-Where Seniors Create
-</span>
--->
-                          
-                          </span>
-                      </a>
-                      <div class="sdt_box">
-                        <a href="/p/A">
-                          Advertising
-                        </a>
-                        <a href="/promoclips">
-                          Promo
-                        </a>
-                        <a href="/radio/">
-                          Radio
-                        </a>
-                      </div>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <img src="{% static 'images/menu/3.jpg' %}"  alt=""/>
-                      <span class="sdt_active">
-                      </span>
-                      <span class="sdt_wrap">
-                        <span class="sdt_link">
-                          Short Movies
-                        </span>
-                        <!--                     
-<span class="sdt_descr">
-Where ideas get born
-</span>
--->
-                      
-                      </span>
-                  </a>
-                  <div class="sdt_box">
-                    <a href="/promoclips">
-                      Promo
-                    </a>
-                    <a href="/documentaryclips">
-                      Documentaries
-                    </a>
-                    <a href="/weddingclips">
-                      Wedding
-                    </a>
-                  </div>
-                  </li>
-                  <li>
-                    <a href="#">
-                      
-                      <img src="{% static 'images/menu/1.jpg' %}"  alt=""/>
-                      <span class="sdt_active">
-                      </span>
-                      <span class="sdt_wrap">
-                        <span class="sdt_link">
-                          Photography
-                        </span>
-                        <!--                     
-<span class="sdt_descr">
-Where Memories Get saved
-</span>
--->
-                      
-                      </span>
-                  </a>
-                  <div class="sdt_box">
-                    <a href="/p/A">
-                      Advertising
-                    </a>
-                    <a href="/p/E">
-                      Event
-                    </a>
-                    <a href="/p/W">
-                      Wedding
-                    </a>
-                  </div>
-                  </li>
-                  
-                  
-                  <li>
-                    <a href="/Contact">
-                      <img src="{% static 'images/menu/5.jpg' %}"  alt=""/>
-                      <span class="sdt_active">
-                      </span>
-                      <span class="sdt_wrap">
-                        <span class="sdt_link">
-                          Contact Us
-                        </span>
-                        <!--                     
-<span class="sdt_descr">
-I write about design
-</span>
--->
-                      
-                      </span>
-                  </a>
-                  </li>
-          </ul>
+                <div class="navbar navbar-inverse navbar-default navbar-fixed-top" style="background-color: rgba(127, 127, 127, 0.37);font-family'jura';font-weight: 800;font-size: 18px;background: rgba(129, 13, 13, 1) url('{% static "/images/overlay.png" %}') no-repeat bottom right;">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">INNOVATE</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/Contact">Contact</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Advertising<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/promoclips">TV Ads</a></li>
+                  <li><a href="/radio/">Radio Ads</a></li>
+                  <li><a href="/p/A">Photo Ads</a></li>
+                  <li class="divider"></li>
+                  <li><a href="/p/A">Ads Making</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Short Movies<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/weddingclips">Wedding Videos</a></li>
+                  <li><a href="/documentaryclips">Documentaries</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Advertising</li>
+                  <li><a href="/promoclips">TV Ads</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Photography<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/p/A">Photo Ads</a></li>
+                  <li><a href="/p/A">Events</a></li>
+                  <li><a href="/p/A">Wedding</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="./">navbar-right</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
           </div>
           
           
@@ -164,7 +115,7 @@ I write about design
             
           
           <br>
-          <div id="main_div" class="row container" style="display:none;position: relative;z-index: 2;">
+          <div id="main_div" class="row container" style="display:none;position: relative;z-index: 2;margin-top: 20px">
             
             
             {% block content %}
@@ -187,19 +138,19 @@ z-index: 9999;
 background-color: rgba(48, 23, 23, 0.2);
 -webkit-margin-before: 0;
 -webkit-margin-after: 0;" >
-  <a href="">
+  <a href="http://www.facebook.com/InnovateWD">
     <img src="{% static 'images/icons/facebook.png'%}" style="width:32px;"  alt="FB">
   </a>
-  <a href="">
+  <a href="http://instagram.com/Innovate_m_p">
     <img src="{% static 'images/icons/Instagram-32-4.png'%}" style="width:32px;" alt="FB">
   </a>
   <a href="">
     <img src="{% static 'images/icons/Soundcloud-orange-32.png'%}" style="width:32px;" alt="FB">
   </a>
-  <a href="">
+  <a href="http://www.youtube.com/user/013Pete">
     <img src="{% static 'images/icons/youtube.png'%}" style="width:32px;" alt="FB">
   </a>
-  <a href="">
+  <a href="https://twitter.com/InnovateMP">
     <img src="{% static 'images/icons/twitter.png'%}" style="width:32px;" alt="FB">
   </a>
   <a href="">
@@ -284,5 +235,6 @@ background-color: rgba(48, 23, 23, 0.2);
           {% block jsadd %}
           {% endblock %}
       </div>
+      <script src="{% static "js/bootstrap.min.js" %}"></script>
   </body>
 </html>
