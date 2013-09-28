@@ -4,9 +4,10 @@
 {% block header %}
 	<link rel="stylesheet" href="{% static "css/prettyPhoto.css" %}" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
 	<link href="{% static "css/wed.css" %}" rel="stylesheet" media="screen">
-	<script src="{% static "js/jquery.prettyPhoto.js" %}" type="text/javascript"  charset="utf-8"></script>
+
 	<script src="{% static "js/modernizr.custom.97074.js" %}"></script>
 	<link href='http://fonts.googleapis.com/css?family=Jura' rel='stylesheet' type='text/css'>
+
 
 
 
@@ -32,16 +33,12 @@
 
 {% endfor %}
 </div>
-
-<script type="text/javascript">
-			$(document).ready(function(){
-				$(".prettyphoto").prettyPhoto({theme: 'dark_rounded'});
-			});
-</script>
+<script src="{% static "js/jquery.prettyPhoto.js" %}" type="text/javascript"  charset="utf-8"></script>
   <script type="text/javascript" src="{% static "js/jquery.hoverdir.js" %}"></script>  
 <script type="text/javascript">
   $(function() {
     $(' #da-thumbs > li ').each( function() { $(this).hoverdir(); } );
+    $(".prettyphoto").prettyPhoto({theme: 'dark_rounded'});
   });
 </script>
 {% endblock %}
