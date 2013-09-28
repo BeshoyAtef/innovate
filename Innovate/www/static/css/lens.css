@@ -23,6 +23,7 @@
         margin: auto;
         top: 114px;
     }
+}
 
     @media (max-width: 999px) {
     .circle {
@@ -34,8 +35,8 @@
         background-size: cover;
         border-radius: 100%;
         cursor: pointer;
-        width: 10em;
-        height: 10em;
+        width: 15em;
+        height: 15em;
         overflow: hidden;
         position: relative;
     /*    left: 20%;

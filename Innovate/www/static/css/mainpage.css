@@ -18,8 +18,8 @@
 }
 @media (max-width: 999px) {
   .rotate{
-          width: 10em; 
-          height: 10em;
+          width: 15em; 
+          height: 15em;
           position: relative;
           margin: 0 auto;
           z-index: 100px;
@@ -27,8 +27,8 @@
           behavior: url(../js/PIE.htc);
   }
   .rotate #backimg{
-            width: 10em; 
-            height: 10em;
+            width: 15em; 
+            height: 15em;
   }
 
 }
