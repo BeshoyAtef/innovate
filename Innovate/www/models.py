@@ -14,9 +14,11 @@ class Album(models.Model):
 	category_choices = (
 		('W', 'Wedding'),
 		('E', 'Event Making'),
-		('A', 'Ads Making'),
+		('A', 'Advertisment'),
 		('S', 'Photo Sessions'),
 		('ET', 'Event Tools'),
+		('AM', 'Ads Making'),
+		('EM', 'Event Tools'),
 	)
 	category = models.CharField(max_length=1, choices=category_choices)
 	def __unicode__(self):

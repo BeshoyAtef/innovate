@@ -52,7 +52,7 @@ input:focus, textarea:focus{outline: none;}
 .area .switchers:after,
 .previews .holder:after,
 .wrap:after,
-.box:after,
+.box1:after,
 .price-box:after,
 .product-list ul:after,
 .specific:after,
@@ -98,7 +98,7 @@ h2{
    text-transform: uppercase;
    padding-left: 5px;
 }
-.box{
+.box1{
    height:460px;
    background: #fff;
    -webkit-border-radius: 2px;
@@ -143,7 +143,7 @@ h2{
 .previews .holder{
 }
 /* preview article */
-.previews .box{
+.previews .box1{
    float: left;
    width: 309px;
    margin: 8px;
@@ -171,7 +171,6 @@ h2{
    height: 52px;
    padding: 6px;
    text-indent: -9999px;
-   overflow: hidden;
    -webkit-border-radius: 32px;
    -moz-border-radius: 32px;
    border-radius: 32px;
@@ -184,11 +183,13 @@ h2{
    -webkit-border-radius: 26px;
    -moz-border-radius: 26px;
    border-radius: 26px;
+   background: #9ab26b url("{% static 'images/back40x.png' %}") no-repeat 6px 6px;
 }
-.box.doc .icon span{background: #9ab26b url("{% static 'images/back40x.png' %}") no-repeat 6px 6px;}
-.box.video .icon span{background: #227ab4 url("{% static 'images/back40x.png' %}") no-repeat 6px 6px;}
-.box.twit .icon span{background: #77abf5 url("{% static 'images/back40x.png' %}") no-repeat 6px 6px;}
-.box.video .time{
+
+.box1.doc .icon span{background: #9ab26b url("{% static 'images/back40x.png' %}") no-repeat 6px 6px;}
+.box1.video .icon span{background: #227ab4 url("{% static 'images/back40x.png' %}") no-repeat 6px 6px;}
+.box1.twit .icon span{background: #77abf5 url("{% static 'images/back40x.png' %}") no-repeat 6px 6px;}
+.box1.video .time{
    position: absolute;
    font-size: 12px;
    letter-spacing: 1px;
@@ -205,8 +206,8 @@ h2{
    color: #7e8c8d;
    margin: 0 0 12px;
 }
-.box.doc h3{padding-left: 5px;}
-.box.video h3{
+.box1.doc h3{padding-left: 5px;}
+.box1.video h3{
    text-align: center;
    padding: 10px 0 0;
 }
@@ -369,15 +370,79 @@ h2{
    width: 310px;
    height: 220px;
 }
+.box,
+.widget,
+.menu .drop ul,
+.menu ul{
+   background: #fff;
+   -webkit-border-radius: 1px;
+   -moz-border-radius: 1px;
+   border-radius: 1px;
+   -webkit-box-shadow: 0 2px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0, 0, 0, 0.2);
+   -moz-box-shadow: 0 2px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0, 0, 0, 0.2);
+   box-shadow: 0 2px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0, 0, 0, 0.2);
+}
+/* post */
+.post{
+   position: relative;
+   width: 563;
+}
+.img-post{
+   position: relative;
+   margin: 0 -20px 25px -33px;
+}
+.post .date{
+   position: absolute;
+   bottom: 0;
+   left: -20px;
+   width: 82px;
+   height: 58px;
+   font-size: 16px;
+   line-height: 16px;
+   font-style: normal;
+   font-weight: bold;
+   color: #fff;
+   background: #9ab26b;
+   text-align: center;
+   text-transform: uppercase;
+   padding-right: 7px;
+}
+.post h3{margin: 0 0 13px -5px;}
+.post h3 a,
+.widgetarea h3 a,
+.widgetarea h4 a{
+   color: #7e8c8d;
+   text-decoration: none;
+}
+.post h3 a:hover, .widgetarea h3 a:hover, .widgetarea h4 a:hover{text-decoration: underline;}
+.post p{margin: 0 0 15px;}
+
+
 </style>
 <div class="" style="margin-top: 35px">
 <div class="header1"><h1>Photography</h1></div>
+                     <div class="post box">
+                        <div class="img-post">
+                           <img src="{% static "images/img-16.jpg" %}" width="577" height="258" alt="image description">
+                           <em class="date"><a href="#" class="icon"><span>play</span></a>Innovate</em>
+                        </div>
+                        <h3><a href="#">Animated musical adventure-comedy film</a></h3>
+                        <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.</p>
+                        <div class="bottom-panel">
+                        </div>
+                     </div>
          <!-- preview articles -->
             <div class="previews">
+                     <!-- preview article -->
+
+
+
+
                <div class="holder">
-                  <!-- preview article -->
+
+
                   <center>
-                  <div class="box twit">
+                  <div class="box1 twit">
                      <div class="img-preview">
                         <a href="#"><img src="{% static "images/img-01.jpg" %}" class="topimg" alt="image description" /></a>
                         <a href="#" class="icon"><span>twitter</span></a>
@@ -388,8 +453,8 @@ h2{
                         <a href="#" class="like">Innovate Egypt</a>
                      </div>
                   </div>
-                  
-                  <div class="box doc">
+
+                  <div class="box1 doc">
                      <div class="img-preview">
                         <a href="#"><img src="{% static "images/img-02.jpg" %}" class="topimg"  alt="image description" /></a>
                         <a href="#" class="icon"><span>document</span></a>
@@ -400,7 +465,7 @@ h2{
                         <a href="#" class="like">Innovate Egypt</a>
                      </div>
                   </div>
-                  <div class="box video">
+                  <div class="box1 video">
                      <div class="img-preview">
                         <a href="#"><img src="{% static "images/img-03.jpg" %}" class="topimg" alt="image description" /></a>
                         <a href="#" class="icon"><span>play</span></a>
