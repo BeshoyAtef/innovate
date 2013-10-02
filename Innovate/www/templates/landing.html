@@ -2,6 +2,9 @@
 {% load thumbnail %}
 {% load staticfiles %}
 {% block content %}
+          {% block content_div %}
+          <div id="" class=" " style="position: relative;z-index: 2;margin-top: 20px">
+          {% endblock %}
 <link href='http://fonts.googleapis.com/css?family=Jura' rel='stylesheet' type='text/css'>
 <style type="text/css">
 /* reset css */
@@ -96,11 +99,11 @@ h2{
    padding-left: 5px;
 }
 .box{
-   height:360px;
+   height:460px;
    background: #fff;
-   -webkit-border-radius: 1px;
-   -moz-border-radius: 1px;
-   border-radius: 1px;
+   -webkit-border-radius: 2px;
+   -moz-border-radius: 2px;
+   border-radius: 2px;
    -webkit-box-shadow: 0 2px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0, 0, 0, 0.2);
    -moz-box-shadow: 0 2px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0, 0, 0, 0.2);
    box-shadow: 0 2px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0, 0, 0, 0.2);
@@ -130,6 +133,7 @@ h2{
 
 /* preview articles */
 .previews{
+   width: 1000;
    margin: 0 0 63px;
    overflow: hidden;
    -webkit-box-sizing: content-box  ;
@@ -137,21 +141,18 @@ h2{
    box-sizing: content-box ;
 }
 .previews .holder{
-   width: 980px;
-   margin: -63px 0 63px -63px;
 }
 /* preview article */
 .previews .box{
    float: left;
-   width: 216px;
-   margin: 64px 0 0 64px;
-   padding: 0 20px 57px 24px;
+   width: 309px;
+   margin: 8px;
    position: relative;
    line-height: 16px;
 }
 .img-preview{
    position: relative;
-   margin: 0 -20px 46px -25px;
+   margin: 0 -0px 46px 0px;
    -webkit-box-sizing: content-box  ;
    -moz-box-sizing: content-box  ;
    box-sizing: content-box ;
@@ -364,16 +365,21 @@ h2{
    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.33);
    color:black;
 }
+.topimg{
+   width: 310px;
+   height: 220px;
+}
 </style>
-<div class="container" style="margin-top: 35px">
+<div class="" style="margin-top: 35px">
 <div class="header1"><h1>Photography</h1></div>
          <!-- preview articles -->
             <div class="previews">
                <div class="holder">
                   <!-- preview article -->
+                  <center>
                   <div class="box twit">
                      <div class="img-preview">
-                        <a href="#"><img src="{% static "images/img-01.jpg" %}" style="width:261;height:159;" alt="image description" /></a>
+                        <a href="#"><img src="{% static "images/img-01.jpg" %}" class="topimg" alt="image description" /></a>
                         <a href="#" class="icon"><span>twitter</span></a>
                      </div>
                      <h3>Animated musical adventure-comedy film</h3>
@@ -382,9 +388,10 @@ h2{
                         <a href="#" class="like">Innovate Egypt</a>
                      </div>
                   </div>
+                  
                   <div class="box doc">
                      <div class="img-preview">
-                        <a href="#"><img src="{% static "images/img-02.jpg" %}" style="width:261;height:159;" alt="image description" /></a>
+                        <a href="#"><img src="{% static "images/img-02.jpg" %}" class="topimg"  alt="image description" /></a>
                         <a href="#" class="icon"><span>document</span></a>
                      </div>
                      <h3>Adventure-comedy</h3>
@@ -395,7 +402,7 @@ h2{
                   </div>
                   <div class="box video">
                      <div class="img-preview">
-                        <a href="#"><img src="{% static "images/img-03.jpg" %}" style="width:261;height:159;" alt="image description" /></a>
+                        <a href="#"><img src="{% static "images/img-03.jpg" %}" class="topimg" alt="image description" /></a>
                         <a href="#" class="icon"><span>play</span></a>
                      </div>
                      <h3>Adventure-comedy</h3>
@@ -404,6 +411,7 @@ h2{
                         <a href="#" class="like">Innovate Egypt</a>
                      </div>
                   </div>
+                  </center>
                </div>
             </div>
             </div>
