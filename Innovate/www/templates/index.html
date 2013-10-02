@@ -46,7 +46,7 @@
 
 		<div id="st_main" class="st_main" style="margin-left: 0px;">
 			<img src="" alt="" class="st_preview" style="display:none;"/>
-<div id="logo_div2" style="display:none;">
+<!-- <div id="logo_div2" style="display:none;">
     <img style="
         position: fixed;
 z-index: 106;
@@ -54,7 +54,7 @@ float: left;
 left: 0px;
 top: 10%;
 height: 10%;" src="{% static 'img/logo-white.png'%}" >
-</div>
+</div>-->
 <div id="lens_div" style="margin: auto;width: 500px;vertical-align:middle;position: relative;
     z-index: 2;
     ">
@@ -170,7 +170,6 @@ font-family: 'Jura', sans-serif;
 
 					var $this = $(this);
 					$loader.show();
-					$('#logo_div2').fadeIn(100);
 
 
 					
@@ -191,7 +190,6 @@ font-family: 'Jura', sans-serif;
 					$(this).stop().animate({'opacity':'0.7'});
 				});
 				$('.st_wrapper').bind('mouseleave',function(){
-					$('#logo_div2').fadeOut(100);
 
 				$('.st_preview').stop().fadeOut(1000);
 				});

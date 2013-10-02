@@ -13,8 +13,10 @@ class Album(models.Model):
 	folder=models.ForeignKey(Folder)
 	category_choices = (
 		('W', 'Wedding'),
-		('E', 'Event'),
-		('A', 'Ads'),
+		('E', 'Event Making'),
+		('A', 'Ads Making'),
+		('S', 'Photo Sessions'),
+		('ET', 'Event Tools'),
 	)
 	category = models.CharField(max_length=1, choices=category_choices)
 	def __unicode__(self):
