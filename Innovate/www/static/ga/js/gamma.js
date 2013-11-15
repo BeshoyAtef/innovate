@@ -256,7 +256,9 @@ var Gamma = (function() {
 
 			if( !Gamma.singleview ) {
 
-				$( '<div class="gamma-single-view"><div class="gamma-options gamma-options-single"><div class="gamma-buttons"><button class="gamma-btn-close"></button></div></div></div>' )
+				$( '<div class="gamma-single-view"><div class="gamma-options gamma-options-single"><div class="gamma-buttons"><button class="gamma-btn-close"></button>
+					<div class="fb-like" data-href="http://www.facebook.com/InnovateWD" data-width="50" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+					</div></div></div>' )
 				.appendTo( Gamma.container );
 
 				Gamma.singleview = Gamma.container.children( 'div.gamma-single-view' );
