@@ -17,7 +17,6 @@ h1{
 	background:transparent url(../images/pattern.png) repeat-x bottom left;
 	opacity:0.2;
 	z-index: -2;
-	margin-top: 51px;
 }
 .st_main img.st_preview{
 	position: fixed;
@@ -32,6 +31,7 @@ h1{
 	bottom: 0;
 	left: 0;
 	right: 0;
+	margin-top: 51px;
 }
 ul.st_navigation{
 	position:fixed;
