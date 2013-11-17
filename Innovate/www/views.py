@@ -8,6 +8,9 @@ from django.core.mail import send_mail, BadHeaderError
 import soundcloud
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+#Abdelrahman Maged-This view will redirect the user to the deletevideo.html page.
+def googlecheck(request):
+	return render_to_response('google4b6c7ff943e0c6ed.html.html')
 
 #Abdelrahman Maged-This view will redirect the user to the deletevideo.html page.
 def render_delete_video_page(request):
