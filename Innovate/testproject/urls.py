@@ -14,6 +14,10 @@ urlpatterns = patterns('',
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
+
+
+    # url(r'', 'www.views.render_main',name='home'),
+
     # Uncomment the next line to enable the admin:
     url(r'^admin/timeline/', include('admin_timeline.urls')),
     url(r'^admin/', include(admin.site.urls)),
@@ -32,25 +36,25 @@ urlpatterns = patterns('',
     url(r'^albumshow/', 'www.views.album_pic'),
     url(r'^deletepic/', 'www.views.render_pic'),
     url(r'^deleted/', 'www.views.delete_pic'),
-    # url(r'^wedding/', 'www.views.albums_gal'),
+    url(r'^wedding/', 'www.views.albums_gal'),
     url(r'^gallery/', 'www.views.weddinggallery'),
     url(r'^about/', 'www.views.aboutusrendering'),
 
     url(r'^base/', 'www.views.render_base'),
 
-    #beshoy renders-front end related urls
+#     #beshoy renders-front end related urls
     url(r'^sorl/', 'www.views.render_app_test'),
     url(r'^base/', 'www.views.render_base'),
     url(r'^radio/', 'www.views.render_radioAds'),
     url(r'^$', 'www.views.render_main',name='home'),
 
 
-    # abdos renders-front end related urls
+#     # abdos renders-front end related urls
     url(r'^weddingclips/', 'www.views.show_wedding_videos'),
     url(r'^documentaryclips/', 'www.views.show_documentaries_videos'),
     url(r'^promoclips/', 'www.views.show_promo_videos'),
 
-    # abdo's functions-bk end related urls
+#     # abdo's functions-bk end related urls
     url(r'^email/', 'www.views.sendemail'),
     url(r'^Delete/Video/(?P<category>\w+)/$', 'www.views.render_videos_to_be_deleted'),
     url(r'^confirmdelete/', 'www.views.delete_video'),
@@ -68,5 +72,5 @@ urlpatterns = patterns('',
 
 )
 urlpatterns += patterns('django.views.static',
-        (r'media/(?P<path>.*)', 'serve', {'document_root': settings.MEDIA_ROOT}),
+      (r'media/(?P<path>.*)', 'serve', {'document_root': settings.MEDIA_ROOT}),
     )
