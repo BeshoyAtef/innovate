@@ -172,7 +172,7 @@
 	        </div> -->
 	        {% for thumb in thumbnails %}
 	            <div class="rsContent">
-	                <img class="rsImg" src="{% thumbnail thumb.image.file 1600x0 %}" data-rstmb="{% thumbnail thumb.image.file 190x130 crop %}" alt="">
+	                <img class="rsImg" src="{% thumbnail thumb.image.file 1600x0 crop %}" data-rstmb="{% thumbnail thumb.image.file 190x130 crop %}" alt="">
 	            </div>
 	        {% endfor %}
 		</div>
